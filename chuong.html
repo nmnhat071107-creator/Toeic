@@ -1,0 +1,2127 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flashcard & Luyện Từ Vựng – HACKERS TOEIC VOCABULARY (Day 1–5)</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Quicksand & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '"Quicksand"', 'sans-serif'],
+            display: ['"Quicksand"', '"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              blue: '#0A84FF',
+              blueHover: '#0070E0',
+              tint: '#D0E2FF',
+              bg: '#F8FAFC',
+              ink: '#0F172A',
+              muted: '#64748B',
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    body {
+      background-color: #F8FAFC;
+      color: #0F172A;
+      font-family: 'Plus Jakarta Sans', 'Quicksand', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Hiệu ứng lật thẻ 3D mượt mà */
+    .perspective-1000 {
+      perspective: 1200px;
+    }
+
+    .flip-inner {
+      position: relative;
+      width: 100%;
+      transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+      transform-style: preserve-3d;
+    }
+
+    .flip-inner.is-flipped {
+      transform: rotateY(180deg);
+    }
+
+    .flip-face {
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      width: 100%;
+    }
+
+    .flip-front {
+      position: relative;
+      z-index: 2;
+      transform: rotateY(0deg);
+    }
+
+    .flip-back {
+      position: absolute;
+      inset: 0;
+      transform: rotateY(180deg);
+      z-index: 1;
+      overflow-y: auto;
+    }
+
+    /* Sóng âm khi phát âm thanh */
+    @keyframes pulseRing {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(10, 132, 255, 0.55); }
+      70% { transform: scale(1.03); box-shadow: 0 0 0 12px rgba(10, 132, 255, 0); }
+      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(10, 132, 255, 0); }
+    }
+
+    .speaking-pulse {
+      animation: pulseRing 1.1s infinite;
+    }
+
+    /* Chế độ phóng to màn hình gõ (Focus Mode) */
+    .focus-zoom-active {
+      position: fixed !important;
+      inset: 0 !important;
+      z-index: 45 !important;
+      max-width: 100% !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      overflow-y: auto !important;
+      background-color: #F8FAFC !important;
+      padding: 1.5rem 1.25rem 3rem !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      align-items: center !important;
+    }
+
+    .focus-zoom-active > * {
+      width: 100%;
+      max-width: 58rem;
+    }
+
+    .focus-zoom-active .zoom-prompt-text {
+      font-size: 2.5rem !important;
+      line-height: 1.2 !important;
+    }
+
+    @media (min-width: 640px) {
+      .focus-zoom-active .zoom-prompt-text {
+        font-size: 3.25rem !important;
+      }
+    }
+
+    .focus-zoom-active .zoom-input {
+      font-size: 1.5rem !important;
+      padding-top: 1.1rem !important;
+      padding-bottom: 1.1rem !important;
+    }
+
+    /* Tùy chỉnh thanh cuộn */
+    ::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F1F5F9;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94A3B8;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-[#D0E2FF] selection:text-[#0F172A]">
+
+  <!-- ==================== TOP HEADER & NAVIGATION ==================== -->
+  <header class="sticky top-0 z-30 bg-white/90 backdrop-blur-md border-b border-slate-200/80 shadow-xs">
+    <div class="max-w-6xl mx-auto px-3 sm:px-6 py-2.5 flex flex-wrap items-center justify-between gap-2.5">
+      <!-- Logo / Brand -->
+      <div class="flex items-center gap-2.5">
+        <div class="w-9 h-9 rounded-xl bg-[#0A84FF] text-white flex items-center justify-center font-display font-bold text-lg shadow-sm">
+          H
+        </div>
+        <div class="leading-tight">
+          <div class="font-display font-bold text-sm sm:text-base text-[#0F172A] tracking-tight">HACKERS TOEIC</div>
+          <div class="text-[11px] font-medium text-[#64748B]">Day 1–5 • 203 Từ Vựng Chuẩn Sách (Bản dịch Phan Điệu)</div>
+        </div>
+      </div>
+
+      <!-- 3 Main Mode Tabs -->
+      <nav aria-label="Chức năng học tập" class="order-3 lg:order-2 w-full lg:w-auto flex items-center justify-center bg-slate-100 p-1 rounded-xl border border-slate-200/70">
+        <button id="tab-flashcard" onclick="switchTab('flashcard')" class="tab-btn flex-1 lg:flex-none px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all flex items-center justify-center gap-1.5 bg-white text-[#0A84FF] shadow-xs">
+          <span>🗂️</span>
+          <span>Flashcard</span>
+        </button>
+        <button id="tab-typing" onclick="switchTab('typing')" class="tab-btn flex-1 lg:flex-none px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all flex items-center justify-center gap-1.5 text-slate-600 hover:text-slate-900">
+          <span>⌨️</span>
+          <span>Luyện gõ Việt ↔ Anh</span>
+        </button>
+        <button id="tab-dictation" onclick="switchTab('dictation')" class="tab-btn flex-1 lg:flex-none px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all flex items-center justify-center gap-1.5 text-slate-600 hover:text-slate-900">
+          <span>🎧</span>
+          <span>Nghe & Gõ từ</span>
+        </button>
+      </nav>
+
+      <!-- Vocabulary Table Modal Trigger -->
+      <div class="order-2 lg:order-3">
+        <button onclick="openVocabModal()" class="px-3 py-2 rounded-xl bg-[#D0E2FF]/70 hover:bg-[#D0E2FF] text-[#0F172A] text-xs sm:text-sm font-semibold transition-colors flex items-center gap-1.5 border border-blue-200/80">
+          <svg class="w-4 h-4 text-[#0A84FF]" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+          </svg>
+          <span>Xem bảng từ vựng (#1–#203)</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Inline Toast Notification -->
+  <div id="toast-container" class="fixed bottom-5 right-5 z-50 pointer-events-none flex flex-col gap-2"></div>
+
+  <!-- ==================== MAIN CONTENT AREA ==================== -->
+  <main class="flex-1 w-full max-w-6xl mx-auto px-3 sm:px-6 py-5 sm:py-8">
+
+    <!-- ============================================================ -->
+    <!-- CHỨC NĂNG 1: FLASHCARD (ĐẦY ĐỦ DER., SYN., COLLOCATIONS)     -->
+    <!-- ============================================================ -->
+    <section id="view-flashcard" class="block">
+      <!-- Tiêu đề lớn căn giữa phía trên cùng -->
+      <div class="text-center mb-5">
+        <h1 class="font-display font-bold text-2xl sm:text-3xl md:text-[34px] text-[#0F172A] tracking-tight">
+          Flashcard – HACKERS TOEIC VOCABULARY
+        </h1>
+        <p id="fc-subtitle" class="mt-1.5 text-sm sm:text-base font-medium text-[#64748B]">
+          Day 1: Tuyển dụng • Đang học từ #1 đến #40 (40 từ)
+        </p>
+      </div>
+
+      <!-- Bộ chọn khoảng từ vựng nhỏ gọn cho Flashcard -->
+      <div class="max-w-[880px] mx-auto mb-5 bg-white rounded-2xl border border-slate-200/80 shadow-xs p-3 sm:p-3.5">
+        <div class="flex flex-wrap items-center justify-between gap-2.5">
+          <!-- Quick Day pills -->
+          <div class="flex flex-wrap items-center gap-1.5">
+            <button onclick="setFcPreset(1, 40)" data-fc-preset="1-40" class="fc-preset-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-[#0A84FF] text-white transition">Day 1 (1–40)</button>
+            <button onclick="setFcPreset(41, 80)" data-fc-preset="41-80" class="fc-preset-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Day 2 (41–80)</button>
+            <button onclick="setFcPreset(81, 120)" data-fc-preset="81-120" class="fc-preset-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Day 3 (81–120)</button>
+            <button onclick="setFcPreset(121, 163)" data-fc-preset="121-163" class="fc-preset-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Day 4 (121–163)</button>
+            <button onclick="setFcPreset(164, 203)" data-fc-preset="164-203" class="fc-preset-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Day 5 (164–203)</button>
+            <button onclick="setFcPreset(1, 203)" data-fc-preset="1-203" class="fc-preset-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Tất cả (1–203)</button>
+          </div>
+
+          <!-- Custom Range Inputs & Shuffle -->
+          <div class="flex flex-wrap items-center gap-2 text-xs sm:text-sm">
+            <span class="text-slate-600 font-medium">Từ số</span>
+            <input id="fc-start" type="number" min="1" max="203" value="1" class="w-16 px-2 py-1 rounded-lg border border-slate-300 text-center font-semibold text-slate-800 focus:outline-none focus:border-[#0A84FF]" />
+            <span class="text-slate-600 font-medium">đến</span>
+            <input id="fc-end" type="number" min="1" max="203" value="40" class="w-16 px-2 py-1 rounded-lg border border-slate-300 text-center font-semibold text-slate-800 focus:outline-none focus:border-[#0A84FF]" />
+            <button onclick="applyFcRange(false)" class="px-3 py-1 rounded-lg bg-[#0A84FF] hover:bg-[#0070E0] text-white font-semibold transition">Áp dụng</button>
+            <button id="fc-shuffle-btn" onclick="toggleFcShuffle()" title="Xáo trộn thứ tự thẻ" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold transition flex items-center gap-1">
+              <span>🔀</span>
+              <span id="fc-shuffle-label">Thứ tự</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Khung thẻ trắng lớn bo góc tròn (max-w-[880px] căn giữa) -->
+      <div class="max-w-[880px] mx-auto">
+        <div id="fc-card-wrapper" onclick="flipFlashcard()" role="button" tabindex="0" aria-label="Thẻ ghi nhớ từ vựng - nhấn để lật" class="perspective-1000 cursor-pointer select-none group">
+          <div id="fc-flip-inner" class="flip-inner bg-white rounded-2xl shadow-md border border-slate-100 transition-shadow hover:shadow-lg">
+
+            <!-- ===== MẶT TRƯỚC (FRONT) ===== -->
+            <div class="flip-face flip-front bg-white rounded-2xl p-5 sm:p-8 flex flex-col justify-between min-h-[460px] sm:min-h-[500px]">
+              <div>
+                <!-- Khung chữ nhật bo góc tròn màu xanh dương nhạt (#D0E2FF) chứa từ tiếng Anh -->
+                <div class="relative w-full bg-[#D0E2FF] rounded-xl px-5 py-6 sm:py-7 flex items-center justify-center">
+                  <span id="fc-day-badge" class="absolute top-2.5 left-3.5 text-[11px] sm:text-xs font-bold text-[#0A84FF] bg-white/80 px-2.5 py-0.5 rounded-full">
+                    Day 1
+                  </span>
+                  <span id="fc-id-badge" class="absolute top-2.5 right-3.5 text-xs sm:text-sm font-bold text-slate-700 bg-white/80 px-2.5 py-0.5 rounded-full">
+                    #1
+                  </span>
+                  <h2 id="fc-word" class="font-display font-bold text-3xl sm:text-[42px] leading-tight text-[#0F172A] text-center tracking-tight break-words">
+                    résumé
+                  </h2>
+                </div>
+
+                <!-- Phiên âm IPA căn giữa màu xám (#64748B) kèm từ loại -->
+                <div id="fc-ipa-pos" class="mt-3.5 text-center text-base sm:text-lg font-medium text-[#64748B]">
+                  /ˈrez.juː.meɪ/ • n
+                </div>
+              </div>
+
+              <!-- Hình minh họa vector SVG sắc nét ở chính giữa thẻ (~150x150px) -->
+              <div class="my-4 flex flex-col items-center justify-center">
+                <div id="fc-svg-container" class="w-[150px] h-[150px] flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+                  <!-- SVG injected dynamically -->
+                </div>
+                <span class="mt-2 text-xs text-slate-400 font-medium text-center">Nhấn vào thẻ hoặc phím Space để xem nghĩa, từ loại phái sinh, đồng nghĩa & cụm từ</span>
+              </div>
+
+              <!-- Thanh tiến độ ngang sát đáy bên trong thẻ trắng -->
+              <div class="pt-2">
+                <div class="flex items-center justify-between text-xs font-semibold text-slate-400 mb-1.5">
+                  <span id="fc-topic-label">Chủ đề: Tuyển dụng</span>
+                  <span id="fc-counter-front">1 / 40</span>
+                </div>
+                <div class="w-full h-2.5 bg-[#E2E8F0] rounded-full overflow-hidden">
+                  <div id="fc-progress-front" class="h-full bg-[#0A84FF] rounded-full transition-all duration-300" style="width: 2.5%;"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ===== MẶT SAU (BACK - ĐẦY ĐỦ KIẾN THỨC SÁCH HACKERS) ===== -->
+            <div class="flip-face flip-back bg-white rounded-2xl p-5 sm:p-7 flex flex-col justify-between min-h-[460px] sm:min-h-[500px]">
+              <div class="space-y-3.5">
+                <!-- Header nhỏ nhắc lại từ & phiên âm -->
+                <div class="flex items-center justify-between text-xs sm:text-sm text-slate-500 px-1">
+                  <div class="font-bold text-[#0F172A] flex flex-wrap items-center gap-2">
+                    <span id="fc-back-word" class="text-lg sm:text-xl">résumé</span>
+                    <span id="fc-back-ipa" class="font-normal text-[#64748B]">/ˈrez.juː.meɪ/ • n</span>
+                  </div>
+                  <span id="fc-back-id" class="font-bold text-[#0A84FF] bg-[#D0E2FF]/60 px-2.5 py-0.5 rounded-full">#1</span>
+                </div>
+
+                <!-- Khung xanh dương nhạt (#D0E2FF) hiển thị nghĩa tiếng Việt nổi bật -->
+                <div class="w-full bg-[#D0E2FF] rounded-xl px-4 py-3.5 sm:py-4 flex items-center justify-center text-center">
+                  <p id="fc-meaning" class="font-display font-bold text-xl sm:text-2xl text-[#0F172A] leading-snug">
+                    sơ yếu lý lịch
+                  </p>
+                </div>
+
+                <!-- Khối Mở rộng từ vựng theo sách Hackers: Từ phái sinh (v, n, adj, adv), Đồng nghĩa (syn.), Cụm từ (collocations) -->
+                <div id="fc-book-details" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-left">
+                  <!-- Cột 1: Từ phái sinh (v, n, adj, adv) & Từ đồng nghĩa -->
+                  <div class="bg-blue-50/60 border border-blue-100 rounded-xl p-3 space-y-2">
+                    <div>
+                      <div class="text-[11px] font-extrabold uppercase tracking-wider text-[#0A84FF] flex items-center gap-1">
+                        <span>🌱 Từ loại liên quan (der.)</span>
+                      </div>
+                      <div id="fc-derivatives" class="mt-1 text-xs sm:text-[13px] text-slate-700 space-y-1">
+                        <!-- Injected dynamically -->
+                      </div>
+                    </div>
+                    <div id="fc-syn-block" class="pt-1.5 border-t border-blue-100/80">
+                      <div class="text-[11px] font-extrabold uppercase tracking-wider text-emerald-700 flex items-center gap-1">
+                        <span>🔄 Từ đồng nghĩa / trái nghĩa</span>
+                      </div>
+                      <div id="fc-synonyms" class="mt-1 flex flex-wrap gap-1.5">
+                        <!-- Injected dynamically -->
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Cột 2: Cụm từ thường gặp chứa từ đó (Collocations) -->
+                  <div class="bg-amber-50/50 border border-amber-100 rounded-xl p-3">
+                    <div class="text-[11px] font-extrabold uppercase tracking-wider text-amber-700 flex items-center gap-1">
+                      <span>📌 Cụm từ thường gặp (TOEIC)</span>
+                    </div>
+                    <ul id="fc-collocations" class="mt-1.5 text-xs sm:text-[13px] text-slate-700 space-y-1.5 list-disc list-inside">
+                      <!-- Injected dynamically -->
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Khung câu ví dụ tiếng Anh (kèm nút loa nhỏ) và bản dịch tiếng Việt rõ ràng -->
+                <div class="bg-slate-50 border border-slate-200/80 rounded-xl p-3.5 text-left">
+                  <div class="flex items-start justify-between gap-3">
+                    <div>
+                      <span class="inline-block text-[10px] font-bold uppercase tracking-wider text-[#0A84FF] mb-0.5">Ví dụ trong sách</span>
+                      <p id="fc-example-en" class="text-sm sm:text-base font-semibold text-[#0F172A] leading-snug">
+                        Fax your résumé and cover letter to the above number.
+                      </p>
+                    </div>
+                    <button type="button" onclick="event.stopPropagation(); speakCurrentFcExample();" title="Nghe đọc câu ví dụ" class="shrink-0 w-9 h-9 rounded-full bg-white hover:bg-[#D0E2FF] text-[#0A84FF] border border-slate-200 shadow-2xs flex items-center justify-center transition">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M11 5L6 9H2v6h4l5 4V5z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.54 8.46a5 5 0 010 7.07M19.07 4.93a10 10 0 010 14.14" />
+                      </svg>
+                    </button>
+                  </div>
+                  <p id="fc-example-vi" class="mt-1.5 pt-1.5 border-t border-slate-200/70 text-xs sm:text-sm text-slate-600 leading-snug">
+                    Hãy gửi sơ yếu lý lịch và đơn xin việc của bạn qua fax đến số bên trên.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Thanh tiến độ ngang sát đáy bên trong mặt sau thẻ trắng -->
+              <div class="pt-3">
+                <div class="flex items-center justify-between text-xs font-semibold text-slate-400 mb-1.5">
+                  <span>Nhấn vào thẻ để quay lại mặt trước</span>
+                  <span id="fc-counter-back">1 / 40</span>
+                </div>
+                <div class="w-full h-2.5 bg-[#E2E8F0] rounded-full overflow-hidden">
+                  <div id="fc-progress-back" class="h-full bg-[#0A84FF] rounded-full transition-all duration-300" style="width: 2.5%;"></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Cụm nút điều khiển nằm căn giữa bên dưới thẻ trắng -->
+        <div class="mt-6 flex flex-col items-center">
+          <div class="flex items-center justify-center gap-4 sm:gap-6">
+            <!-- Nút Prev -->
+            <button onclick="prevFlashcard()" class="px-5 sm:px-6 py-3 rounded-xl bg-[#F1F5F9] hover:bg-slate-200/80 border border-slate-200 text-slate-700 font-bold text-sm sm:text-base transition active:scale-95 flex items-center gap-1.5">
+              <span>◀</span>
+              <span>Prev</span>
+            </button>
+
+            <!-- Nút tròn màu xanh dương (#0A84FF) ở chính giữa chứa icon loa trắng -->
+            <button id="fc-speak-btn" onclick="speakCurrentFcWord()" title="Phát âm từ vựng (Phím R)" class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#0A84FF] hover:bg-[#0070E0] text-white shadow-md hover:shadow-lg transition active:scale-95 flex items-center justify-center">
+              <svg class="w-7 h-7 sm:w-8 sm:h-8" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M11 5L6 9H2v6h4l5 4V5z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.54 8.46a5 5 0 010 7.07M19.07 4.93a10 10 0 010 14.14" />
+              </svg>
+            </button>
+
+            <!-- Nút Next -->
+            <button onclick="nextFlashcard()" class="px-5 sm:px-6 py-3 rounded-xl bg-[#0A84FF] hover:bg-[#0070E0] text-white font-bold text-sm sm:text-base shadow-sm transition active:scale-95 flex items-center gap-1.5">
+              <span>Next</span>
+              <span>▶</span>
+            </button>
+          </div>
+
+          <!-- Checkbox Tự động đọc khi chuyển thẻ & Phím tắt -->
+          <div class="mt-4 flex flex-wrap items-center justify-center gap-4 text-xs sm:text-sm text-slate-600">
+            <label class="inline-flex items-center gap-2 cursor-pointer select-none font-medium">
+              <input id="fc-auto-speak" type="checkbox" checked class="w-4 h-4 rounded text-[#0A84FF] focus:ring-[#0A84FF] border-slate-300" />
+              <span>Tự động đọc khi chuyển thẻ</span>
+            </label>
+            <span class="hidden sm:inline text-slate-300">|</span>
+            <span class="text-xs text-slate-400">
+              Phím tắt: <kbd class="px-1.5 py-0.5 bg-white border border-slate-200 rounded text-slate-600 font-mono">←</kbd> <kbd class="px-1.5 py-0.5 bg-white border border-slate-200 rounded text-slate-600 font-mono">→</kbd> chuyển thẻ • <kbd class="px-1.5 py-0.5 bg-white border border-slate-200 rounded text-slate-600 font-mono">Space</kbd> lật thẻ • <kbd class="px-1.5 py-0.5 bg-white border border-slate-200 rounded text-slate-600 font-mono">R</kbd> đọc lại
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CHỨC NĂNG 2: LUYỆN GÕ VIỆT ↔ ANH                             -->
+    <!-- ============================================================ -->
+    <section id="view-typing" class="hidden">
+      <div class="text-center mb-5">
+        <h1 class="font-display font-bold text-2xl sm:text-3xl text-[#0F172A] tracking-tight">
+          Luyện Gõ Từ Vựng Việt ↔ Anh
+        </h1>
+        <p class="mt-1 text-sm text-[#64748B]">Chấp nhận cả từ đồng nghĩa trong sách Hackers • Nhấn Enter 2 lần để kiểm tra và qua câu kế tiếp</p>
+      </div>
+
+      <!-- Khu vực tùy chọn ở đầu chế độ -->
+      <div class="max-w-4xl mx-auto bg-white rounded-2xl border border-slate-200/80 shadow-xs p-4 sm:p-5 mb-6">
+        <div class="flex flex-col gap-4">
+          <!-- Hàng 1: Chọn chiều luyện tập -->
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3.5 border-b border-slate-100">
+            <span class="text-xs sm:text-sm font-bold text-slate-700">1. Chiều luyện tập:</span>
+            <div class="inline-flex bg-slate-100 p-1 rounded-xl border border-slate-200/70 self-start sm:self-auto">
+              <button id="tp-dir-vi2en" onclick="setTypingDirection('vi2en')" class="px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-bold bg-white text-[#0A84FF] shadow-xs transition">
+                Hiện Tiếng Việt ➔ Gõ Tiếng Anh
+              </button>
+              <button id="tp-dir-en2vi" onclick="setTypingDirection('en2vi')" class="px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-bold text-slate-600 hover:text-slate-900 transition">
+                Hiện Tiếng Anh ➔ Gõ Tiếng Việt
+              </button>
+            </div>
+          </div>
+
+          <!-- Hàng 2: Chọn khoảng từ vựng & Thứ tự -->
+          <div class="flex flex-col gap-3">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <span class="text-xs sm:text-sm font-bold text-slate-700">2. Khoảng từ vựng & Thứ tự:</span>
+              <div class="flex flex-wrap items-center gap-1.5">
+                <button onclick="setTpPreset(1, 40)" data-tp-preset="1-40" class="tp-preset-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-[#0A84FF] text-white transition">Day 1 (1–40)</button>
+                <button onclick="setTpPreset(41, 80)" data-tp-preset="41-80" class="tp-preset-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Day 2 (41–80)</button>
+                <button onclick="setTpPreset(81, 120)" data-tp-preset="81-120" class="tp-preset-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Day 3 (81–120)</button>
+                <button onclick="setTpPreset(121, 163)" data-tp-preset="121-163" class="tp-preset-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Day 4 (121–163)</button>
+                <button onclick="setTpPreset(164, 203)" data-tp-preset="164-203" class="tp-preset-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Day 5 (164–203)</button>
+                <button onclick="setTpPreset(1, 203)" data-tp-preset="1-203" class="tp-preset-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Tất cả (1–203)</button>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-between gap-3 pt-1">
+              <div class="flex flex-wrap items-center gap-2 text-xs sm:text-sm">
+                <span class="text-slate-600 font-medium">Từ vựng từ số</span>
+                <input id="tp-start" type="number" min="1" max="203" value="1" class="w-16 px-2.5 py-1.5 rounded-xl border border-slate-300 text-center font-bold text-slate-800 focus:outline-none focus:border-[#0A84FF]" />
+                <span class="text-slate-600 font-medium">đến số</span>
+                <input id="tp-end" type="number" min="1" max="203" value="40" class="w-16 px-2.5 py-1.5 rounded-xl border border-slate-300 text-center font-bold text-slate-800 focus:outline-none focus:border-[#0A84FF]" />
+              </div>
+
+              <div class="flex flex-wrap items-center gap-2">
+                <select id="tp-order" class="px-3 py-1.5 rounded-xl border border-slate-300 bg-white text-xs sm:text-sm font-semibold text-slate-700 focus:outline-none focus:border-[#0A84FF]">
+                  <option value="random">Thứ tự: Ngẫu nhiên</option>
+                  <option value="sequential">Thứ tự: Theo số thứ tự</option>
+                </select>
+                <button onclick="startTypingSession()" class="px-4 py-1.5 rounded-xl bg-[#0A84FF] hover:bg-[#0070E0] text-white text-xs sm:text-sm font-bold shadow-xs transition">
+                  Bắt đầu / Áp dụng
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Khu vực làm bài Luyện gõ (Hỗ trợ phóng to toàn màn hình) -->
+      <div id="tp-active-area" class="max-w-3xl mx-auto transition-all">
+        <!-- Thanh thống kê tiến độ -->
+        <div class="grid grid-cols-4 gap-2 sm:gap-3 mb-4">
+          <div class="bg-white rounded-xl border border-slate-200/80 p-3 text-center">
+            <div class="text-[11px] font-semibold text-slate-400 uppercase">Câu hiện tại</div>
+            <div id="tp-stat-progress" class="text-base sm:text-lg font-bold text-[#0F172A]">1 / 40</div>
+          </div>
+          <div class="bg-white rounded-xl border border-emerald-200/80 p-3 text-center">
+            <div class="text-[11px] font-semibold text-emerald-600 uppercase">Đúng</div>
+            <div id="tp-stat-correct" class="text-base sm:text-lg font-bold text-emerald-600">0</div>
+          </div>
+          <div class="bg-white rounded-xl border border-rose-200/80 p-3 text-center">
+            <div class="text-[11px] font-semibold text-rose-500 uppercase">Sai</div>
+            <div id="tp-stat-wrong" class="text-base sm:text-lg font-bold text-rose-500">0</div>
+          </div>
+          <div class="bg-white rounded-xl border border-blue-200/80 p-3 text-center">
+            <div class="text-[11px] font-semibold text-[#0A84FF] uppercase">Chính xác</div>
+            <div id="tp-stat-acc" class="text-base sm:text-lg font-bold text-[#0A84FF]">0%</div>
+          </div>
+        </div>
+
+        <!-- Thẻ đề bài -->
+        <div class="bg-white rounded-2xl shadow-md border border-slate-100 p-5 sm:p-8">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+            <div class="flex items-center gap-2">
+              <span id="tp-badge-day" class="text-xs font-bold text-[#0A84FF] bg-[#D0E2FF] px-3 py-1 rounded-full">Day 1 • #1</span>
+              <span id="tp-badge-pos" class="text-xs font-bold text-slate-600 bg-slate-100 px-3 py-1 rounded-full">Loại từ: n</span>
+            </div>
+            <!-- Nút phóng to màn hình gõ -->
+            <button type="button" id="tp-zoom-btn" onclick="toggleFocusZoom('tp')" class="px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-[#D0E2FF] text-slate-700 hover:text-[#0A84FF] text-xs font-bold transition flex items-center gap-1.5 border border-slate-200/80">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4h4M20 8V4h-4M4 16v4h4M20 16v4h-4" />
+              </svg>
+              <span id="tp-zoom-label">Phóng to màn hình gõ</span>
+            </button>
+          </div>
+
+          <!-- Đề bài hiển thị -->
+          <div class="bg-[#D0E2FF]/65 rounded-2xl p-5 sm:p-6 text-center my-3">
+            <div id="tp-prompt-label" class="text-xs font-semibold text-slate-500 mb-1">Nghĩa tiếng Việt:</div>
+            <div id="tp-prompt-main" class="zoom-prompt-text font-display font-bold text-2xl sm:text-3xl text-[#0F172A] leading-snug">
+              sơ yếu lý lịch
+            </div>
+            <div id="tp-prompt-sub" class="mt-2 flex items-center justify-center gap-2 text-sm text-[#64748B]">
+              <!-- IPA & nút loa nếu là chiều Anh -> Việt -->
+            </div>
+          </div>
+
+          <!-- Nút gợi ý chữ cái đầu (cho chiều Việt -> Anh) -->
+          <div id="tp-hint-bar" class="flex flex-wrap items-center justify-between gap-2 my-3">
+            <button type="button" onclick="showTypingHint()" class="px-3 py-1.5 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-700 border border-amber-200 text-xs sm:text-sm font-semibold transition flex items-center gap-1.5">
+              <span>💡</span>
+              <span>Gợi ý chữ cái đầu</span>
+            </button>
+            <span id="tp-hint-text" class="font-mono text-sm font-bold text-amber-700 tracking-wider"></span>
+          </div>
+
+          <!-- Ô nhập đáp án -->
+          <div class="mt-3">
+            <input id="tp-input" type="text" autocomplete="off" spellcheck="false" placeholder="Nhập từ tiếng Anh tương ứng..." class="zoom-input w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 focus:border-[#0A84FF] focus:outline-none text-lg sm:text-xl font-bold text-[#0F172A] text-center transition" />
+          </div>
+
+          <!-- Phản hồi kết quả -->
+          <div id="tp-feedback" class="hidden mt-4 rounded-xl p-4 border text-left"></div>
+
+          <!-- Các nút hành động -->
+          <div class="mt-5 flex flex-wrap items-center justify-center gap-3">
+            <button id="tp-check-btn" onclick="handleTypingSubmit()" class="px-6 py-3 rounded-xl bg-[#0A84FF] hover:bg-[#0070E0] text-white font-bold text-sm sm:text-base shadow-sm transition active:scale-95">
+              Kiểm tra (Enter)
+            </button>
+            <button id="tp-next-btn" onclick="nextTypingQuestion()" disabled class="hidden px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-900 disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold text-sm sm:text-base shadow-sm transition active:scale-95">
+              Câu tiếp theo ➔
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Màn hình tổng kết Luyện gõ -->
+      <div id="tp-summary" class="hidden max-w-2xl mx-auto bg-white rounded-2xl shadow-md border border-slate-100 p-6 sm:p-8 text-center">
+        <div class="w-16 h-16 rounded-2xl bg-[#D0E2FF] text-[#0A84FF] flex items-center justify-center text-3xl mx-auto mb-3">
+          🏆
+        </div>
+        <h2 class="font-display font-bold text-2xl text-[#0F172A]">Hoàn thành phiên luyện gõ!</h2>
+        <p id="tp-sum-desc" class="text-sm text-slate-500 mt-1">Bạn đã hoàn thành toàn bộ câu hỏi trong phạm vi đã chọn.</p>
+
+        <div class="grid grid-cols-3 gap-3 my-6">
+          <div class="bg-emerald-50 rounded-xl p-3.5 border border-emerald-200">
+            <div class="text-xs font-bold text-emerald-600">SỐ CÂU ĐÚNG</div>
+            <div id="tp-sum-correct" class="text-2xl font-extrabold text-emerald-700 mt-1">0</div>
+          </div>
+          <div class="bg-rose-50 rounded-xl p-3.5 border border-rose-200">
+            <div class="text-xs font-bold text-rose-600">SỐ CÂU SAI</div>
+            <div id="tp-sum-wrong" class="text-2xl font-extrabold text-rose-700 mt-1">0</div>
+          </div>
+          <div class="bg-blue-50 rounded-xl p-3.5 border border-blue-200">
+            <div class="text-xs font-bold text-[#0A84FF]">TỶ LỆ ĐÚNG</div>
+            <div id="tp-sum-acc" class="text-2xl font-extrabold text-[#0A84FF] mt-1">0%</div>
+          </div>
+        </div>
+
+        <div id="tp-wrong-list-box" class="hidden text-left mb-6 bg-slate-50 rounded-xl p-4 border border-slate-200">
+          <h3 class="text-xs font-extrabold uppercase tracking-wider text-rose-600 mb-2">Danh sách từ gõ sai cần ôn lại:</h3>
+          <ul id="tp-wrong-list" class="space-y-1.5 text-xs sm:text-sm text-slate-700 max-h-48 overflow-y-auto"></ul>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-3">
+          <button id="tp-retry-wrong-btn" onclick="retryTypingWrong()" class="hidden px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-bold text-sm transition">
+            🔁 Luyện lại các từ sai
+          </button>
+          <button onclick="startTypingSession()" class="px-5 py-2.5 rounded-xl bg-[#0A84FF] hover:bg-[#0070E0] text-white font-bold text-sm transition">
+            Làm lại phiên này
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CHỨC NĂNG 3: NGHE & GÕ TỪ (DICTATION)                        -->
+    <!-- ============================================================ -->
+    <section id="view-dictation" class="hidden">
+      <div class="text-center mb-5">
+        <h1 class="font-display font-bold text-2xl sm:text-3xl text-[#0F172A] tracking-tight">
+          Nghe & Gõ Từ Vựng (Dictation)
+        </h1>
+        <p class="mt-1 text-sm text-[#64748B]">Luyện phản xạ nghe phát âm chuẩn và chính tả TOEIC • Phím <kbd class="px-1.5 py-0.5 bg-white border border-slate-200 rounded text-xs font-mono">Ctrl</kbd> hoặc <kbd class="px-1.5 py-0.5 bg-white border border-slate-200 rounded text-xs font-mono">Alt</kbd> để nghe lại</p>
+      </div>
+
+      <!-- Bộ chọn phạm vi & tốc độ đọc -->
+      <div class="max-w-4xl mx-auto bg-white rounded-2xl border border-slate-200/80 shadow-xs p-4 sm:p-5 mb-6">
+        <div class="flex flex-col gap-3.5">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <span class="text-xs sm:text-sm font-bold text-slate-700">Chọn khoảng từ vựng:</span>
+            <div class="flex flex-wrap items-center gap-1.5">
+              <button onclick="setDcPreset(1, 40)" data-dc-preset="1-40" class="dc-preset-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-[#0A84FF] text-white transition">Day 1 (1–40)</button>
+              <button onclick="setDcPreset(41, 80)" data-dc-preset="41-80" class="dc-preset-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Day 2 (41–80)</button>
+              <button onclick="setDcPreset(81, 120)" data-dc-preset="81-120" class="dc-preset-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Day 3 (81–120)</button>
+              <button onclick="setDcPreset(121, 163)" data-dc-preset="121-163" class="dc-preset-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Day 4 (121–163)</button>
+              <button onclick="setDcPreset(164, 203)" data-dc-preset="164-203" class="dc-preset-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Day 5 (164–203)</button>
+              <button onclick="setDcPreset(1, 203)" data-dc-preset="1-203" class="dc-preset-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Tất cả (1–203)</button>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center justify-between gap-3 pt-1">
+            <div class="flex flex-wrap items-center gap-2 text-xs sm:text-sm">
+              <span class="text-slate-600 font-medium">Từ số</span>
+              <input id="dc-start" type="number" min="1" max="203" value="1" class="w-16 px-2.5 py-1.5 rounded-xl border border-slate-300 text-center font-bold text-slate-800 focus:outline-none focus:border-[#0A84FF]" />
+              <span class="text-slate-600 font-medium">đến số</span>
+              <input id="dc-end" type="number" min="1" max="203" value="40" class="w-16 px-2.5 py-1.5 rounded-xl border border-slate-300 text-center font-bold text-slate-800 focus:outline-none focus:border-[#0A84FF]" />
+            </div>
+
+            <div class="flex flex-wrap items-center gap-2">
+              <select id="dc-order" class="px-3 py-1.5 rounded-xl border border-slate-300 bg-white text-xs sm:text-sm font-semibold text-slate-700 focus:outline-none focus:border-[#0A84FF]">
+                <option value="random">Thứ tự: Ngẫu nhiên</option>
+                <option value="sequential">Thứ tự: Theo số thứ tự</option>
+              </select>
+              <button onclick="startDictationSession()" class="px-4 py-1.5 rounded-xl bg-[#0A84FF] hover:bg-[#0070E0] text-white text-xs sm:text-sm font-bold shadow-xs transition">
+                Bắt đầu / Áp dụng
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Khu vực làm bài Nghe & Gõ từ (Hỗ trợ phóng to toàn màn hình) -->
+      <div id="dc-active-area" class="max-w-3xl mx-auto transition-all">
+        <!-- Thống kê -->
+        <div class="grid grid-cols-4 gap-2 sm:gap-3 mb-4">
+          <div class="bg-white rounded-xl border border-slate-200/80 p-3 text-center">
+            <div class="text-[11px] font-semibold text-slate-400 uppercase">Câu hiện tại</div>
+            <div id="dc-stat-progress" class="text-base sm:text-lg font-bold text-[#0F172A]">1 / 40</div>
+          </div>
+          <div class="bg-white rounded-xl border border-emerald-200/80 p-3 text-center">
+            <div class="text-[11px] font-semibold text-emerald-600 uppercase">Đúng</div>
+            <div id="dc-stat-correct" class="text-base sm:text-lg font-bold text-emerald-600">0</div>
+          </div>
+          <div class="bg-white rounded-xl border border-rose-200/80 p-3 text-center">
+            <div class="text-[11px] font-semibold text-rose-500 uppercase">Sai</div>
+            <div id="dc-stat-wrong" class="text-base sm:text-lg font-bold text-rose-500">0</div>
+          </div>
+          <div class="bg-white rounded-xl border border-blue-200/80 p-3 text-center">
+            <div class="text-[11px] font-semibold text-[#0A84FF] uppercase">Chính xác</div>
+            <div id="dc-stat-acc" class="text-base sm:text-lg font-bold text-[#0A84FF]">0%</div>
+          </div>
+        </div>
+
+        <!-- Thẻ nghe -->
+        <div class="bg-white rounded-2xl shadow-md border border-slate-100 p-5 sm:p-8">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+            <span id="dc-badge-day" class="text-xs font-bold text-[#0A84FF] bg-[#D0E2FF] px-3 py-1 rounded-full">Day 1 • Câu 1</span>
+            <button type="button" id="dc-zoom-btn" onclick="toggleFocusZoom('dc')" class="px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-[#D0E2FF] text-slate-700 hover:text-[#0A84FF] text-xs font-bold transition flex items-center gap-1.5 border border-slate-200/80">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4h4M20 8V4h-4M4 16v4h4M20 16v4h-4" />
+              </svg>
+              <span id="dc-zoom-label">Phóng to màn hình gõ</span>
+            </button>
+          </div>
+
+          <!-- Khu vực nút loa phát âm lớn -->
+          <div class="bg-[#D0E2FF]/50 rounded-2xl p-6 flex flex-col items-center justify-center my-2">
+            <div class="flex items-center gap-4">
+              <button id="dc-play-btn" type="button" onclick="playCurrentDictation(1.0)" class="w-20 h-20 rounded-full bg-[#0A84FF] hover:bg-[#0070E0] text-white shadow-lg flex items-center justify-center transition active:scale-95" title="Nghe tốc độ chuẩn">
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M11 5L6 9H2v6h4l5 4V5z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.54 8.46a5 5 0 010 7.07M19.07 4.93a10 10 0 010 14.14" />
+                </svg>
+              </button>
+
+              <button type="button" onclick="playCurrentDictation(0.65)" class="px-4 py-3 rounded-xl bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 shadow-2xs text-xs sm:text-sm font-bold flex items-center gap-1.5 transition active:scale-95" title="Nghe đọc chậm">
+                <span>🐢</span>
+                <span>Nghe chậm (0.65x)</span>
+              </button>
+            </div>
+            <p class="mt-3 text-xs text-slate-500 font-medium">Nhấn vào loa để nghe từ vựng và gõ chính xác vào ô bên dưới</p>
+          </div>
+
+          <!-- Gợi ý nghĩa tiếng Việt hoặc số chữ cái -->
+          <div class="flex flex-wrap items-center justify-between gap-2 my-3">
+            <div class="flex flex-wrap gap-2">
+              <button type="button" onclick="toggleDictationMeaningHint()" class="px-3 py-1.5 rounded-xl bg-blue-50 hover:bg-blue-100 text-[#0A84FF] border border-blue-200 text-xs font-semibold transition">
+                🇻🇳 Gợi ý nghĩa tiếng Việt
+              </button>
+              <button type="button" onclick="showDictationLetterHint()" class="px-3 py-1.5 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-700 border border-amber-200 text-xs font-semibold transition">
+                💡 Gợi ý chữ cái đầu
+              </button>
+            </div>
+            <span id="dc-hint-display" class="text-xs sm:text-sm font-bold text-slate-700"></span>
+          </div>
+
+          <!-- Ô nhập -->
+          <div class="mt-3">
+            <input id="dc-input" type="text" autocomplete="off" spellcheck="false" placeholder="Gõ từ bạn nghe được..." class="zoom-input w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 focus:border-[#0A84FF] focus:outline-none text-lg sm:text-xl font-bold text-[#0F172A] text-center transition" />
+          </div>
+
+          <!-- Phản hồi -->
+          <div id="dc-feedback" class="hidden mt-4 rounded-xl p-4 border text-left"></div>
+
+          <!-- Nút hành động -->
+          <div class="mt-5 flex flex-wrap items-center justify-center gap-3">
+            <button id="dc-check-btn" onclick="handleDictationSubmit()" class="px-6 py-3 rounded-xl bg-[#0A84FF] hover:bg-[#0070E0] text-white font-bold text-sm sm:text-base shadow-sm transition active:scale-95">
+              Kiểm tra (Enter)
+            </button>
+            <button id="dc-next-btn" onclick="nextDictationQuestion()" disabled class="hidden px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-900 disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold text-sm sm:text-base shadow-sm transition active:scale-95">
+              Câu tiếp theo ➔
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Màn hình tổng kết Dictation -->
+      <div id="dc-summary" class="hidden max-w-2xl mx-auto bg-white rounded-2xl shadow-md border border-slate-100 p-6 sm:p-8 text-center">
+        <div class="w-16 h-16 rounded-2xl bg-[#D0E2FF] text-[#0A84FF] flex items-center justify-center text-3xl mx-auto mb-3">
+          🎧
+        </div>
+        <h2 class="font-display font-bold text-2xl text-[#0F172A]">Hoàn thành phiên Nghe & Gõ từ!</h2>
+        <p class="text-sm text-slate-500 mt-1">Kết quả luyện nghe chính tả TOEIC của bạn:</p>
+
+        <div class="grid grid-cols-3 gap-3 my-6">
+          <div class="bg-emerald-50 rounded-xl p-3.5 border border-emerald-200">
+            <div class="text-xs font-bold text-emerald-600">NGHE ĐÚNG</div>
+            <div id="dc-sum-correct" class="text-2xl font-extrabold text-emerald-700 mt-1">0</div>
+          </div>
+          <div class="bg-rose-50 rounded-xl p-3.5 border border-rose-200">
+            <div class="text-xs font-bold text-rose-600">NGHE SAI</div>
+            <div id="dc-sum-wrong" class="text-2xl font-extrabold text-rose-700 mt-1">0</div>
+          </div>
+          <div class="bg-blue-50 rounded-xl p-3.5 border border-blue-200">
+            <div class="text-xs font-bold text-[#0A84FF]">TỶ LỆ ĐÚNG</div>
+            <div id="dc-sum-acc" class="text-2xl font-extrabold text-[#0A84FF] mt-1">0%</div>
+          </div>
+        </div>
+
+        <div id="dc-wrong-list-box" class="hidden text-left mb-6 bg-slate-50 rounded-xl p-4 border border-slate-200">
+          <h3 class="text-xs font-extrabold uppercase tracking-wider text-rose-600 mb-2">Từ nghe sai cần luyện lại:</h3>
+          <ul id="dc-wrong-list" class="space-y-1.5 text-xs sm:text-sm text-slate-700 max-h-48 overflow-y-auto"></ul>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-3">
+          <button id="dc-retry-wrong-btn" onclick="retryDictationWrong()" class="hidden px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-bold text-sm transition">
+            🔁 Nghe lại các từ sai
+          </button>
+          <button onclick="startDictationSession()" class="px-5 py-2.5 rounded-xl bg-[#0A84FF] hover:bg-[#0070E0] text-white font-bold text-sm transition">
+            Làm lại phiên này
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== MODAL XEM BẢNG TỪ VỰNG (#1–#203) ==================== -->
+  <div id="vocab-modal" class="hidden fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-xs flex items-center justify-center p-2 sm:p-5">
+    <div class="bg-white w-full max-w-5xl max-h-[90vh] rounded-2xl shadow-2xl border border-slate-200 flex flex-col overflow-hidden">
+      <!-- Modal Header -->
+      <div class="px-4 sm:px-6 py-4 border-b border-slate-200 flex flex-wrap items-center justify-between gap-3 bg-slate-50">
+        <div>
+          <h2 class="font-display font-bold text-lg sm:text-xl text-[#0F172A]">Danh sách 203 Từ Vựng HACKERS TOEIC (Day 1–5)</h2>
+          <p class="text-xs text-slate-500">Cập nhật chuẩn xác theo sách Hackers TOEIC Vocabulary (Phan Điệu dịch)</p>
+        </div>
+        <button onclick="closeVocabModal()" class="w-9 h-9 rounded-xl bg-white hover:bg-rose-50 text-slate-600 hover:text-rose-600 border border-slate-200 flex items-center justify-center font-bold transition">
+          ✕
+        </button>
+      </div>
+
+      <!-- Filter & Search Bar -->
+      <div class="px-4 sm:px-6 py-3 border-b border-slate-100 flex flex-wrap items-center justify-between gap-2.5 bg-white">
+        <div class="flex flex-wrap items-center gap-1.5">
+          <button onclick="filterModalDay(0)" data-modal-day="0" class="modal-day-btn px-2.5 py-1 rounded-lg text-xs font-bold bg-[#0A84FF] text-white">Tất cả (203)</button>
+          <button onclick="filterModalDay(1)" data-modal-day="1" class="modal-day-btn px-2.5 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-700">Day 1</button>
+          <button onclick="filterModalDay(2)" data-modal-day="2" class="modal-day-btn px-2.5 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-700">Day 2</button>
+          <button onclick="filterModalDay(3)" data-modal-day="3" class="modal-day-btn px-2.5 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-700">Day 3</button>
+          <button onclick="filterModalDay(4)" data-modal-day="4" class="modal-day-btn px-2.5 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-700">Day 4</button>
+          <button onclick="filterModalDay(5)" data-modal-day="5" class="modal-day-btn px-2.5 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-700">Day 5</button>
+        </div>
+        <div class="relative w-full sm:w-64">
+          <input id="modal-search" type="text" oninput="renderVocabTable()" placeholder="Tìm từ tiếng Anh hoặc nghĩa..." class="w-full pl-8 pr-3 py-1.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:outline-none focus:border-[#0A84FF]" />
+          <span class="absolute left-2.5 top-2 text-slate-400 text-xs">🔍</span>
+        </div>
+      </div>
+
+      <!-- Table Content -->
+      <div class="flex-1 overflow-y-auto">
+        <table class="w-full text-left border-collapse">
+          <thead class="bg-slate-100/90 sticky top-0 text-[11px] font-extrabold uppercase text-slate-500 border-b border-slate-200">
+            <tr>
+              <th class="py-2.5 px-3 w-14 text-center">#</th>
+              <th class="py-2.5 px-3">Từ vựng & Phiên âm</th>
+              <th class="py-2.5 px-3 w-16 text-center">Loại</th>
+              <th class="py-2.5 px-3">Nghĩa tiếng Việt & Mở rộng (Chuẩn sách)</th>
+              <th class="py-2.5 px-3 w-20 text-center">Nghe</th>
+            </tr>
+          </thead>
+          <tbody id="vocab-table-body" class="divide-y divide-slate-100 text-xs sm:text-sm">
+            <!-- Rows injected dynamically -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== JAVASCRIPT LOGIC & DATA ==================== -->
+  <script>
+    // =========================================================================
+    // 1. DỮ LIỆU 203 TỪ VỰNG CẬP NHẬT CHÍNH XÁC TỪ PDF HACKERS TOEIC VOCABULARY
+    // =========================================================================
+    const DAY_TOPICS = {
+      1: "Day 1: Tuyển dụng (Thoát cảnh thất nghiệp)",
+      2: "Day 2: Phép tắc - Quy định (Quy định về trang phục)",
+      3: "Day 3: Công việc văn phòng (1) (Cao thủ chốn văn phòng)",
+      4: "Day 4: Công việc văn phòng (2) (Bí quyết kinh doanh)",
+      5: "Day 5: Công việc văn phòng (3) (Vũ khí bí mật)"
+    };
+
+    // Định dạng: [id, day, word, ipa, pos, meaning, der, syn, collocations, exEn, exVi]
+    const RAW_VOCAB_DATA = [
+      // ==================== DAY 1: TUYỂN DỤNG (1 - 40) ====================
+      [1, 1, "résumé", "/ˈrez.juː.meɪ/", "n", "sơ yếu lý lịch", "", "", ["fax your résumé (gửi sơ yếu lý lịch qua fax)", "résumé and cover letter (sơ yếu lý lịch và đơn xin việc)"], "Fax your résumé and cover letter to the above number.", "Hãy gửi sơ yếu lý lịch và đơn xin việc của bạn qua fax đến số bên trên."],
+      [2, 1, "opening", "/ˈəʊ.pən.ɪŋ/", "n", "vị trí trống, sự mở cửa, lễ khai trương", "", "vacancy (khoảng trống, vị trí trống)", ["job openings (vị trí công việc còn trống)", "an opening (vị trí trống)"], "There are several job openings at the restaurant right now.", "Ngay bây giờ đang có một vài vị trí công việc còn trống ở nhà hàng."],
+      [3, 1, "applicant", "/ˈæp.lɪ.kənt/", "n", "ứng viên, người xin việc", "apply (v) áp dụng, ứng tuyển, application (n) đơn ứng tuyển, appliance (n) thiết bị, dụng cụ", "", ["complete/submit/receive an application (điền/nộp/nhận đơn đăng ký)"], "Applicants are required to submit a résumé.", "Các ứng viên cần phải nộp sơ yếu lý lịch."],
+      [4, 1, "requirement", "/rɪˈkwaɪə.mənt/", "n", "điều kiện cần thiết, yêu cầu", "require (v) yêu cầu", "prerequisite (điều kiện tiên quyết)", ["a requirement of/for (điều kiện cần cho)"], "A driver's license is a requirement of this job.", "Giấy phép lái xe là một điều kiện cần cho công việc này."],
+      [5, 1, "meet", "/miːt/", "v", "thỏa mãn, đáp ứng (yêu cầu, điều kiện)", "", "satisfy, fulfill", ["meet one's needs (đáp ứng nhu cầu của ai đó)", "meet requirements (đáp ứng các yêu cầu)", "meet customer demand (đáp ứng yêu cầu khách hàng)", "meet expectations (thỏa mãn mong đợi)"], "Applicants must meet all the requirements for the job.", "Các ứng viên phải đáp ứng tất cả yêu cầu của công việc."],
+      [6, 1, "qualified", "/ˈkwɒl.ɪ.faɪd/", "adj", "đủ khả năng, trình độ, điều kiện", "qualify (v) đủ điều kiện, qualification (n) phẩm chất, năng lực, qualifier (n) người đủ điều kiện", "certified (được chứng nhận)", ["be qualified for (đủ điều kiện cho)", "qualifications for (tiêu chuẩn cho)"], "People with master's degrees are qualified for the research position.", "Những người có bằng thạc sĩ thì đủ điều kiện cho vị trí nghiên cứu này."],
+      [7, 1, "candidate", "/ˈkæn.dɪ.dət/", "n", "thí sinh, ứng viên", "", "applicant (ứng viên)", ["final interviews (vòng phỏng vấn cuối cùng)"], "Five candidates will be selected for final interviews.", "Năm ứng viên sẽ được chọn vào vòng phỏng vấn cuối cùng."],
+      [8, 1, "confidence", "/ˈkɒn.fɪ.dəns/", "n", "sự tự tin, sự tin tưởng, lòng tin", "confident (adj) tự tin, tin tưởng", "", ["show/express confidence in (thể hiện sự tự tin về)", "confidence in (tin chắc, tự tin về điều gì)", "in confidence (bí mật)"], "We have confidence that she can handle the position.", "Chúng tôi có lòng tin rằng cô ấy có thể đảm đương được vị trí này."],
+      [9, 1, "highly", "/ˈhaɪ.li/", "adv", "rất, hết sức", "", "", ["highly competent/recommended/qualified (rất có khả năng/rất được khuyến khích/rất đủ điều kiện)", "highly competitive/profitable (có tính cạnh tranh cao/rất có lợi)"], "Mr. Monroe's experience makes him highly qualified for the job.", "Kinh nghiệm của Monroe khiến ông ấy rất phù hợp với công việc này."],
+      [10, 1, "professional", "/prəˈfeʃ.ən.əl/", "adj, n", "có tính chuyên môn, chuyên nghiệp, lành nghề; chuyên gia", "profession (n) nghề nghiệp, professionally (adv) thành thạo, chuyên nghiệp", "", ["professional photographer (nhiếp ảnh gia chuyên nghiệp)", "certified health professional (chuyên gia y tế có bằng cấp)"], "Jeff is known as a professional photographer.", "Jeff được biết đến như một nhiếp ảnh gia chuyên nghiệp."],
+      [11, 1, "interview", "/ˈɪn.tə.vjuː/", "n, v", "cuộc phỏng vấn; phỏng vấn", "", "", ["hold interviews (thực hiện các cuộc phỏng vấn)", "interview applicants (phỏng vấn ứng viên)"], "The interviews are being held in meeting room three.", "Các cuộc phỏng vấn đang được thực hiện tại phòng họp số 3."],
+      [12, 1, "hire", "/haɪər/", "v, n", "thuê mướn, tuyển dụng", "", "", ["hire new employees (tuyển nhân viên mới)"], "The company expects to hire several new employees next month.", "Công ty kỳ vọng sẽ tuyển được vài nhân viên mới vào tháng tới."],
+      [13, 1, "training", "/ˈtreɪ.nɪŋ/", "n", "sự đào tạo, huấn luyện", "", "", ["on-the-job training (đào tạo tại chỗ)"], "This company offers on-the-job training for new staff.", "Công ty này cung cấp chương trình đào tạo tại chỗ cho nhân viên mới."],
+      [14, 1, "reference", "/ˈref.ər.əns/", "n", "sự giới thiệu, sự tham khảo", "refer (v) tham khảo, xem", "", ["reference letter (thư giới thiệu)", "reference material (tài liệu tham khảo)"], "Philip asked his previous employer to write a reference letter for him.", "Philip nhờ quản lý cũ của mình viết một lá thư giới thiệu cho anh ấy."],
+      [15, 1, "position", "/pəˈzɪʃ.ən/", "n, v", "chức vụ, vị trí; định vị, đặt vào vị trí", "", "", ["accept a position (chấp nhận vị trí làm việc)", "apply for a position (ứng tuyển cho một vị trí)"], "The advertised position provides health care and other benefits.", "Vị trí được quảng cáo đó chu cấp dịch vụ chăm sóc sức khỏe và các phúc lợi khác."],
+      [16, 1, "achievement", "/əˈtʃiːv.mənt/", "n", "thành tựu, thành tích, sự đạt được", "", "", ["list all of your achievements (liệt kê tất cả thành tích)"], "List all of your achievements from previous jobs on your résumé.", "Hãy liệt kê tất cả những thành tích của bạn trong công việc trước vào bản sơ yếu lý lịch."],
+      [17, 1, "impressed", "/ɪmˈprest/", "adj", "có ấn tượng, cảm phục", "", "", ["be impressed by (bị ấn tượng bởi)", "organizing skills (kỹ năng tổ chức)"], "The CEO was impressed by his assistant's organizing skills.", "Vị giám đốc điều hành đã bị ấn tượng bởi kỹ năng tổ chức của viên thư ký đó."],
+      [18, 1, "excellent", "/ˈek.səl.ənt/", "adj", "xuất sắc, vượt trội, ưu tú", "", "", ["excellent managerial skills (kỹ năng quản lý xuất sắc)"], "Because of her excellent managerial skills, Erin was hired for the job.", "Nhờ kỹ năng quản lý xuất sắc của mình, Erin đã được tuyển dụng làm công việc này."],
+      [19, 1, "eligible", "/ˈel.ɪ.dʒə.bəl/", "adj", "có đủ tư cách, thích hợp", "eligibility (n) sự thích hợp, việc đủ tư cách", "ant. ineligible (không đủ tư cách)", ["be eligible for membership/compensation/position (đủ điều kiện làm hội viên/nhận bồi thường/được thăng chức)", "be eligible to do (có đủ tư cách làm việc gì)"], "The part-time workers are also eligible for paid holidays.", "Các nhân viên bán thời gian cũng đủ điều kiện để được nghỉ phép có trả lương."],
+      [20, 1, "identify", "/aɪˈden.tɪ.faɪ/", "v", "nhận diện, nhận ra", "identification (n) sự nhận diện, giấy tờ chứng minh/chứng minh thư", "", ["easy for customers to identify (dễ dàng cho khách hàng nhận ra)"], "Staff members wear uniforms so that they are easy for customers to identify.", "Các nhân viên mặc đồng phục để khách hàng dễ dàng nhận ra họ."],
+      [21, 1, "associate", "/əˈsəʊ.si.eɪt/", "v, n, adj", "liên kết, kết giao; đồng minh, cộng sự; cùng cộng tác, liên đới", "association (n) sự hợp tác, liên minh", "", ["be associated with (có liên quan tới)", "in association with (hợp tác/liên minh với)"], "Two of the applicants were associated with a competitor.", "Hai trong số các ứng viên có liên kết với một đối thủ."],
+      [22, 1, "condition", "/kənˈdɪʃ.ən/", "n", "điều kiện", "", "", ["conditions of employment (những điều kiện của công việc)"], "The conditions of employment are listed in the job.", "Những điều kiện của công việc được liệt kê trong thông báo tuyển dụng."],
+      [23, 1, "employment", "/ɪmˈplɔɪ.mənt/", "n", "việc làm", "employ (v) tuyển dụng, thuê, employee (n) nhân viên, employer (n) người tuyển dụng", "ant. unemployment (thất nghiệp)", ["employment opportunities (cơ hội việc làm)"], "The company announced employment opportunities in personnel department.", "Công ty đã thông báo những cơ hội việc làm ở phòng nhân sự."],
+      [24, 1, "lack", "/læk/", "v, n", "thiếu, không có; sự thiếu hụt", "", "", ["a lack of funds (thiếu kinh phí)", "lack the ability (không có khả năng)"], "Due to a lack of funds, the project has been temporarily halted.", "Do thiếu kinh phí, dự án đã tạm thời bị dừng lại."],
+      [25, 1, "managerial", "/ˌmæn.əˈdʒɪə.ri.əl/", "adj", "thuộc về quản lý", "manage (v) quản lý, điều khiển", "supervisory (giám sát, giám thị)", ["managerial staff/experience (nhân viên quản lý, kinh nghiệm quản lý)", "managerial position (vị trí quản lý)"], "Mike is seeking a managerial position in the accounting field.", "Mike đang tìm kiếm một vị trí quản lý trong ngành kế toán."],
+      [26, 1, "diligent", "/ˈdɪl.ɪ.dʒənt/", "adj", "siêng năng, cần cù", "diligence (n) sự cần cù, siêng năng, diligently (adv) một cách chăm chỉ, miệt mài", "", ["diligent workers (nhân viên siêng năng)"], "Carmen is one of the most diligent workers in the company.", "Carmen là một trong những nhân viên siêng năng nhất ở công ty này."],
+      [27, 1, "familiar", "/fəˈmɪl.i.ər/", "adj", "quen thuộc, thuần thục", "familiarize (v) (làm) quen, phổ biến", "ant. unfamiliar (không quen thuộc, không biết)", ["be familiar with (quen thuộc với, nắm rõ)"], "Staff must review the handbook to become familiar with it.", "Nhân viên phải xem lại sổ tay hướng dẫn để nắm rõ nó."],
+      [28, 1, "proficiency", "/prəˈfɪʃ.ən.si/", "n", "sự thông thạo, sự thành thạo", "proficient (adj) thuần thục, điêu luyện", "", ["proof of proficiency in a second language (chứng minh sự thông thạo một ngôn ngữ thứ hai)"], "Overseas workers need proof of proficiency in a second language.", "Người lao động ở nước ngoài cần phải chứng minh sự thông thạo một ngôn ngữ thứ hai."],
+      [29, 1, "prospective", "/prəˈspek.tɪv/", "adj", "có triển vọng, có tiềm năng, có tương lai", "prospect (n) triển vọng, viễn cảnh", "", ["prospective employees (các nhân viên tiềm năng)"], "Prospective employees were asked to come in for second interview.", "Các nhân viên tiềm năng được yêu cầu đến phỏng vấn vòng hai."],
+      [30, 1, "appeal", "/əˈpiːl/", "v", "kêu gọi, lôi cuốn, hấp dẫn", "", "attract (thu hút, hấp dẫn)", ["appeal to + danh từ (kêu gọi điều gì, hấp dẫn ai)"], "The 10 percent pay increase appealed to the staff.", "Mức tăng lương 10% đã hấp dẫn các nhân viên."],
+      [31, 1, "specialize", "/ˈspeʃ.əl.aɪz/", "v", "chuyên làm về, học chuyên về", "", "", ["specialize in (chuyên về)"], "Most of the programmers specialized in software design in college.", "Hầu hết các lập trình viên đều học chuyên về thiết kế phần mềm ở trường đại học."],
+      [32, 1, "apprehensive", "/ˌæp.rɪˈhen.sɪv/", "adj", "lo lắng, e sợ", "", "concerned (lo lắng)", ["feel apprehensive before (cảm thấy lo lắng trước)"], "Many people feel apprehensive before an important job interview.", "Nhiều người cảm thấy lo lắng trước một cuộc phỏng vấn tuyển dụng quan trọng."],
+      [33, 1, "consultant", "/kənˈsʌl.tənt/", "n", "người tư vấn, cố vấn", "consult (v) hỏi/tham khảo ý kiến", "", ["consult + chuyên gia (tham khảo ý kiến ai)", "consult with + người ngang hàng (hội ý, thảo luận với ai)", "consult + sách/tài liệu (tìm hiểu, tham khảo)"], "Emma currently works in London as an interior design consultant.", "Emma hiện đang làm việc ở London trong vai trò một người tư vấn thiết kế nội thất."],
+      [34, 1, "entitle", "/ɪnˈtaɪ.təl/", "v", "cho quyền (làm gì)", "", "", ["be entitled to + danh từ (được hưởng gì đó)", "be entitled to do (được quyền làm gì đó)"], "Executives are entitled to additional benefits.", "Các ủy viên ban quản trị được hưởng những quyền lợi bổ sung."],
+      [35, 1, "degree", "/dɪˈɡriː/", "n", "trình độ, bằng cấp", "", "", ["a bachelor's degree in engineering (bằng cử nhân về kỹ thuật)"], "A bachelor's degree in engineering is a requirement for this position.", "Bằng cử nhân về kỹ thuật là một điều kiện cần thiết cho vị trí này."],
+      [36, 1, "payroll", "/ˈpeɪ.rəʊl/", "n", "bảng lương, tổng quỹ lương", "", "", ["on the payroll (được tuyển dụng)", "added to the payroll (được bổ sung vào bảng lương)"], "Fifteen new employees were added to the payroll last month.", "Mười lăm nhân viên mới đã được bổ sung vào bảng lương tháng trước."],
+      [37, 1, "recruit", "/rɪˈkruːt/", "v, n", "tuyển dụng; nhân viên mới", "recruitment (n) sự tuyển dụng, recruiter (n) người tuyển dụng", "", ["recruit promising graduates (tuyển dụng sinh viên mới tốt nghiệp đầy triển vọng)"], "The firm recruits promising graduates on a yearly basis.", "Hằng năm, công ty tuyển dụng những sinh viên mới tốt nghiệp đầy triển vọng."],
+      [38, 1, "certification", "/ˌsɜː.tɪ.fɪˈkeɪ.ʃən/", "n", "sự chứng nhận, giấy chứng nhận", "certify (v) chứng nhận, certified (adj) được chứng nhận, certificate (n) giấy chứng nhận, chứng chỉ", "", ["professional certification (giấy chứng nhận chuyên môn)", "a birth certificate (giấy khai sinh)"], "Obtaining accounting certification takes approximately a year.", "Mất xấp xỉ một năm để có được giấy chứng nhận kế toán."],
+      [39, 1, "occupation", "/ˌɒk.jəˈpeɪ.ʃən/", "n", "nghề nghiệp", "occupy (v) giữ, chiếm (vị trí), occupational (adj) (thuộc) nghề nghiệp, occupant (n) người sở hữu, người sử dụng", "job, vocation (nghề nghiệp)", ["challenging occupation (nghề đầy thử thách)"], "Journalism is an interesting and challenging occupation.", "Làm báo là một nghề thú vị và đầy thử thách."],
+      [40, 1, "wage", "/weɪdʒ/", "n", "tiền lương, tiền công", "", "", ["earn higher wages (nhận được mức lương cao hơn)"], "Workers with formal education may earn higher wages than those without.", "Người lao động được đào tạo chính quy có thể nhận được mức lương cao hơn những người không có trình độ."],
+
+      // ==================== DAY 2: PHÉP TẮC - QUY ĐỊNH (41 - 80) ====================
+      [41, 2, "attire", "/əˈtaɪər/", "n", "quần áo, cách ăn mặc", "", "", ["professional business attire (trang phục phù hợp với môi trường kinh doanh chuyên nghiệp)"], "Professional business attire is required of all staff giving presentations.", "Trang phục phù hợp với môi trường kinh doanh chuyên nghiệp là yêu cầu bắt buộc đối với tất cả nhân viên thực hiện bài thuyết trình."],
+      [42, 2, "code", "/kəʊd/", "n", "quy định, điều lệ, mật mã", "", "", ["dress code (quy định về trang phục)"], "Employees are expected to follow the dress code.", "Các nhân viên cần phải tuân theo quy định về trang phục."],
+      [43, 2, "concern", "/kənˈsɜːn/", "n, v", "sự lo lắng, mối quan ngại; lo lắng, bận tâm, ảnh hưởng, liên quan, dính líu tới", "concerning (prep) liên quan đến ai/cái gì, concerned (adj) có liên quan; đáng lo ngại", "matter (vấn đề), worry (lo lắng), involve (ảnh hưởng, liên quan tới)", ["concern about/over (lo lắng, quan ngại về)", "questions concerning (câu hỏi liên quan đến)"], "The board voiced concerns about safety at the meeting.", "Hội đồng bày tỏ mối quan ngại về sự an toàn tại cuộc họp."],
+      [44, 2, "policy", "/ˈpɒl.ə.si/", "n", "quy chế, chính sách", "", "", ["employee benefit policy (chính sách phúc lợi cho nhân viên)", "health insurance policies (chính sách bảo hiểm y tế)"], "The employee benefit policy will be expanded next year.", "Chính sách phúc lợi cho nhân viên sẽ được mở rộng vào năm tới."],
+      [45, 2, "comply", "/kəmˈplaɪ/", "v", "tuân thủ, tuân theo", "compliance (n) sự làm theo, sự phục tùng", "", ["comply with (tuân thủ, làm theo quy tắc, yêu cầu)"], "Employees must comply with the regulations governing computer use.", "Nhân viên phải tuân thủ các quy định về quản lý sử dụng máy tính."],
+      [46, 2, "regulation", "/ˌreɡ.jəˈleɪ.ʃən/", "n", "quy định, quy tắc, điều lệ", "regulate (v) điều chỉnh, kiểm soát (= control)", "", ["safety regulations (quy tắc an toàn)", "customs regulations (quy định hải quan)"], "Regulations regarding lunch breaks were established.", "Những quy định về giờ nghỉ trưa đã được thiết lập."],
+      [47, 2, "exception", "/ɪkˈsep.ʃən/", "n", "ngoại lệ", "exceptional (adj) đặc biệt, hiếm có, exceptionally (adv) cá biệt, except (prep) ngoại trừ", "", ["with the exception of (ngoại trừ)", "with very few exceptions (gần như không có ngoại lệ)"], "Management decided not to make any exceptions to the rules.", "Ban quản lý quyết định không chấp nhận bất kỳ ngoại lệ nào đối với quy định này."],
+      [48, 2, "adhere", "/ədˈhɪər/", "v", "bám sát, tuân thủ", "adherence (n) sự trung thành", "", ["adhere to + policies/rules/standards (tuân theo chính sách/quy tắc/tiêu chuẩn)"], "All staff should do their best to adhere to the company's policies.", "Tất cả nhân viên nên cố gắng hết sức để tuân thủ các chính sách của công ty."],
+      [49, 2, "severely", "/sɪˈvɪə.li/", "adv", "nghiêm khắc, khắt khe; gay go, dữ dội", "severe (adj) khắt khe, gay gắt", "syn. sternly (nghiêm khắc), ant. leniently (nhân hậu, khoan dung)", ["severely punished (bị trừng phạt nghiêm khắc)"], "Those who share company data with outside parties will be severely punished.", "Những ai chia sẻ dữ liệu của công ty ra bên ngoài sẽ bị trừng phạt nghiêm khắc."],
+      [50, 2, "refrain", "/rɪˈfreɪn/", "v", "kiềm chế, hạn chế", "", "", ["refrain from (hạn chế điều gì)"], "Guards should refrain from making personal calls during a shift.", "Nhân viên bảo vệ nên hạn chế thực hiện các cuộc gọi cá nhân khi đang trong ca trực."],
+      [51, 2, "permission", "/pəˈmɪʃ.ən/", "n", "sự cho phép", "permit (v) cho phép", "", ["give permission to do (cho phép làm gì)"], "The CEO gave managers permission to hold a weekend workshop.", "Giám đốc điều hành đã cho phép các quản lý tổ chức một buổi hội thảo cuối tuần."],
+      [52, 2, "access", "/ˈæk.ses/", "n, v", "quyền truy cập, sự lui tới, đường vào; truy cập", "accessible (adj) có thể truy cập, accessibility (n) khả năng tiếp cận được", "", ["have access to (có quyền tiếp cận vào/với)", "access the documents (truy cập, xem tài liệu)"], "Only authorized personnel may gain access to client files.", "Chỉ nhân viên được ủy quyền mới có thể truy cập vào các tập tin của khách hàng."],
+      [53, 2, "thoroughly", "/ˈθʌr.ə.li/", "adv", "một cách kỹ lưỡng; hoàn toàn, triệt để", "thorough (adj) tỉ mỉ, cẩn thận", "", ["read thoroughly (đọc kỹ)", "thoroughly impressed (hoàn toàn bị ấn tượng)"], "Please read the user manual thoroughly before installing this software.", "Vui lòng đọc kỹ hướng dẫn sử dụng trước khi cài đặt phần mềm này."],
+      [54, 2, "revise", "/rɪˈvaɪz/", "v", "sửa đổi, thay đổi (ý kiến, kế hoạch)", "revision (n) sự sửa lại, sự thay đổi", "", ["revise policies (sửa đổi chính sách)"], "The office's policies regarding vacations have been revised.", "Các chính sách của văn phòng liên quan đến ngày nghỉ phép đã được sửa đổi."],
+      [55, 2, "approach", "/əˈprəʊtʃ/", "n, v", "cách tiếp cận, phương pháp xử lý; tiếp cận", "", "", ["a strict approach to (cách tiếp cận nghiêm khắc trong việc)"], "The manager has a strict approach to enforcing office regulations.", "Viên quản lý có cách tiếp cận nghiêm khắc trong việc thực thi các quy định của văn phòng."],
+      [56, 2, "approval", "/əˈpruː.vəl/", "n", "sự chấp thuận, sự phê duyệt", "approve (v) chấp thuận (ant. reject, turn down)", "permission (sự cho phép)", ["obtain approval (for) (nhận/xin sự phê duyệt cho)"], "Please obtain the supervisor's approval before purchasing supplies.", "Vui lòng xin phê duyệt của quản lý trước khi mua vật tư."],
+      [57, 2, "form", "/fɔːm/", "n, v", "kiểu, loại, hình thức; tạo thành, định hình", "formal (adj) trang trọng, formation (n) sự hình thành, sự thành lập", "", ["a form of identification (một loại giấy tờ tùy thân)"], "Visitors are required to present a form of identification to security guards.", "Du khách phải xuất trình một loại giấy tờ tùy thân cho nhân viên bảo vệ."],
+      [58, 2, "immediately", "/ɪˈmiː.di.ət.li/", "adv", "ngay lập tức", "immediate (adj) lập tức, tức thì", "", ["effective immediately (ngay khi có hiệu lực)", "immediately after (ngay sau đó)", "immediately upon arrival (ngay khi tới nơi)"], "Effective immediately, taxes will be automatically deducted from each paycheck.", "Ngay khi có hiệu lực, thuế sẽ được tự động khấu trừ từ lương của mỗi người."],
+      [59, 2, "inspection", "/ɪnˈspek.ʃən/", "n", "sự kiểm tra, sự thanh tra", "inspect (v) xem xét, kiểm tra", "", ["facility inspection (việc kiểm tra cơ sở)"], "The facility inspection should be conducted at least once a month.", "Việc kiểm tra cơ sở nên được tiến hành ít nhất mỗi tháng một lần."],
+      [60, 2, "arrangement", "/əˈreɪndʒ.mənt/", "n", "sự sắp xếp, sự sắp đặt, sự chuẩn bị", "arrange (v) sắp xếp, sắp đặt", "", ["make arrangements to do (sắp xếp, chuẩn bị để làm việc gì đó)", "make arrangements for (chuẩn bị cho việc gì đó)"], "The manager made arrangements for purchase of new machinery.", "Viên quản lý đã thu xếp cho việc mua máy móc mới."],
+      [61, 2, "procedure", "/prəˈsiː.dʒər/", "n", "thủ tục", "proceed (v) tiến hành, tiếp diễn, procedural (adj) theo thủ tục", "", ["the procedure for (thủ tục cho việc)"], "The procedure for patent applications is outlined on the APTO website.", "Thủ tục xin cấp bằng sáng chế được tóm lược trên trang web của APTO."],
+      [62, 2, "negative", "/ˈneɡ.ə.tɪv/", "adj", "tiêu cực, bi quan", "", "", ["negative feedback (những phản hồi tiêu cực)"], "The new vacation policy received negative feedback from the employees.", "Chính sách nghỉ phép mới đã nhận những phản hồi tiêu cực từ các nhân viên."],
+      [63, 2, "mandate", "/ˈmæn.deɪt/", "v, n", "ra lệnh, ủy quyền, ủy thác; lệnh, trát, sự ủy thác", "", "", ["mandate an increase (ra lệnh tăng)", "give a mandate to (ủy thác quyền cho)"], "The board of directors has mandated an increase for research funding.", "Hội đồng quản trị đã ra lệnh tăng kinh phí cho nghiên cứu."],
+      [64, 2, "effect", "/ɪˈfekt/", "n, v", "hiệu ứng, hiệu quả, hiệu lực; thực hiện, đem lại", "effective (adj) hiệu quả, effectively (adv) một cách hiệu quả", "", ["in effect (có hiệu lực, được thực hiện)", "come into effect / take effect (có hiệu lực, được thi hành)", "have an effect on (có ảnh hưởng/tác động tới)", "secondary effect (phản ứng/hiệu ứng phụ)"], "The incentive policy will be in effect starting next week.", "Chính sách động viên đó sẽ có hiệu lực bắt đầu từ tuần tới."],
+      [65, 2, "drastically", "/ˈdræs.tɪ.kəl.i/", "adv", "một cách mạnh mẽ, quyết liệt, triệt để", "drastic (adj) mạnh mẽ, quyết liệt", "", ["drastically increased (được tăng mạnh)"], "Fines for breaking rules have been drastically increased.", "Hình phạt cho việc vi phạm quy định đã được tăng mạnh."],
+      [66, 2, "according to", "/əˈkɔː.dɪŋ ˌtuː/", "phr", "theo", "", "", ["according to the guidelines (theo hướng dẫn)"], "All transactions must be handled according to the guidelines.", "Tất cả giao dịch phải được xử lý theo hướng dẫn."],
+      [67, 2, "enable", "/ɪˈneɪ.bəl/", "v", "làm cho có thể, cho phép", "", "", ["enable someone to do (cho phép ai làm gì)"], "Jenny's promotion enabled her to participate in the board meeting.", "Việc Jenny được thăng chức đã cho phép cô ấy tham gia vào cuộc họp hội đồng."],
+      [68, 2, "standard", "/ˈstæn.dəd/", "n", "tiêu chuẩn, chuẩn, trình độ", "standardize (v) tiêu chuẩn hóa", "", ["safety standards (các tiêu chuẩn an toàn)"], "The company must make changes to the current safety standards.", "Công ty cần phải có những thay đổi đối với các tiêu chuẩn an toàn hiện tại."],
+      [69, 2, "constant", "/ˈkɒn.stənt/", "adj", "liên tục, không ngớt, không dứt", "constantly (adv) một cách liên tục", "", ["constant inquiries (những câu hỏi liên tục)"], "The store received constant inquiries about its new return policy.", "Cửa hàng nhận được những câu hỏi liên tục về chính sách hoàn trả mới."],
+      [70, 2, "act", "/ækt/", "n, v", "việc, hành động, đạo luật; hành động, đưa ra quyết định", "", "", ["act on behalf of (hành động thay mặt cho)", "new act (đạo luật mới)"], "The new act makes it easier to file personal income tax forms online.", "Đạo luật mới khiến cho việc nộp các biểu mẫu khai thuế thu nhập cá nhân trên mạng trở nên dễ dàng hơn."],
+      [71, 2, "compensation", "/ˌkɒm.penˈseɪ.ʃən/", "n", "sự đền bù, sự bồi thường", "compensate (v) đền bù, bồi thường", "", ["compensation for (bồi thường cho)", "receive compensation (nhận được bồi thường)"], "Employees will receive compensation based on their performance and evaluation.", "Nhân viên sẽ nhận được bồi thường dựa trên hiệu suất làm việc và bản đánh giá của họ."],
+      [72, 2, "ban", "/bæn/", "n, v", "lệnh cấm, sự cấm đoán; cấm", "", "", ["place a ban on (ban hành lệnh cấm đối với)"], "The government placed a ban on carrying a large volume of liquid on board a plane.", "Chính phủ ban hành lệnh cấm đối với việc mang một lượng lớn chất lỏng lên máy bay."],
+      [73, 2, "obligation", "/ˌɒb.lɪˈɡeɪ.ʃən/", "n", "nghĩa vụ, trách nhiệm", "", "", ["have an obligation to do (có trách nhiệm phải làm gì)"], "All researchers have an obligation to publish at least one paper every year.", "Mọi nhà nghiên cứu đều có trách nhiệm phải xuất bản ít nhất một bài báo mỗi năm."],
+      [74, 2, "authorize", "/ˈɔː.θər.aɪz/", "v", "ủy quyền, cho phép", "authorized (adj) được cho phép, được ủy quyền, authorization (n) sự cho phép, sự cấp phép, authority (n) quyền lực, quyền thế", "", ["an authorized service center (một trung tâm dịch vụ được ủy quyền)", "unauthorized reproduction (sản xuất, sao chép trái phép)"], "Allocations of funds must be authorized by management.", "Việc phân bổ kinh phí phải được ban quản lý cho phép."],
+      [75, 2, "prohibit", "/prəˈhɪb.ɪt/", "v", "ngăn cấm, ngăn chặn, không cho phép", "prohibition (n) sự cấm", "forbid (cấm)", ["prohibit A from -ing (cấm A làm gì)"], "The museum prohibits visitors from taking pictures.", "Bảo tàng không cho phép du khách chụp ảnh."],
+      [76, 2, "abolish", "/əˈbɒl.ɪʃ/", "v", "thủ tiêu, bãi bỏ, hủy bỏ", "abolition (n) sự bãi bỏ", "", ["abolish taxes (bãi bỏ thuế)"], "Congress decided to abolish taxes on imported fruit.", "Quốc hội đã quyết định bãi bỏ thuế đối với các loại trái cây nhập khẩu."],
+      [77, 2, "enforce", "/ɪnˈfɔːs/", "v", "làm cho có hiệu lực, thúc ép, thi hành", "enforcement (n) sự thúc ép, sự bắt buộc", "", ["enforce regulations (thực thi quy định)", "enforce a policy (thực thi chính sách)"], "All departments must enforce the no smoking policy.", "Tất cả các phòng ban phải thực thi quy định về cấm hút thuốc lá."],
+      [78, 2, "habit", "/ˈhæb.ɪt/", "n", "thói quen, tập quán", "habitual (adj) thường lệ, quen thuộc", "", ["a regular habit (một thói quen thường xuyên)"], "Setting goals should be a regular habit.", "Việc đặt mục tiêu nên là một thói quen thường xuyên."],
+      [79, 2, "legislation", "/ˌledʒ.ɪˈsleɪ.ʃən/", "n", "sự làm luật, pháp luật, pháp chế", "legislate (v) lập pháp, làm luật, legislator (n) nhà lập pháp", "", ["vote for new legislation (bỏ phiếu cho luật mới)"], "The committee unanimously voted for the new export limitation legislation.", "Ủy ban đã nhất trí bỏ phiếu cho luật mới về hạn chế xuất khẩu."],
+      [80, 2, "restrict", "/rɪˈstrɪkt/", "v", "giới hạn, hạn chế", "restriction (n) sự hạn chế, restrictive (adj) hạn chế, giới hạn", "limit (hạn chế, giới hạn)", ["restrict A to B (hạn chế A đối với B)", "lift/raise a restriction (bãi bỏ sự hạn chế)"], "Access is restricted to authorized personnel.", "Việc truy cập chỉ giới hạn cho các nhân viên được ủy quyền."],
+
+      // ==================== DAY 3: CÔNG VIỆC VĂN PHÒNG (1) (81 - 120) ====================
+      [81, 3, "accustomed", "/əˈkʌs.təmd/", "adj", "quen với, thành thói quen", "", "", ["be accustomed to -ing (quen với việc gì)"], "All our employees are accustomed to using the new design software.", "Tất cả nhân viên của chúng tôi đều đã quen với việc sử dụng phần mềm thiết kế mới."],
+      [82, 3, "corporation", "/ˌkɔː.pərˈeɪ.ʃən/", "n", "công ty, tập đoàn", "corporate (adj) thuộc về đoàn thể", "", ["multinational corporation (tập đoàn đa quốc gia)"], "Delroy Lee heads a multinational telecommunications corporation based in Virginia.", "Delroy Lee đứng đầu một tập đoàn viễn thông đa quốc gia có trụ sở tại Virginia."],
+      [83, 3, "demanding", "/dɪˈmɑːn.dɪŋ/", "adj", "đòi hỏi khắt khe", "demand (v) yêu cầu", "", ["demanding supervisor (giám sát rất khắt khe)"], "Although Ms. Jenkins is a demanding supervisor, she has a reputation for being fair.", "Mặc dù Jenkins là một giám sát rất khắt khe, nhưng cô ấy có tiếng là luôn công bằng."],
+      [84, 3, "colleague", "/ˈkɒl.iːɡ/", "n", "đồng nghiệp", "", "associate, coworker, peer (đồng nghiệp)", ["cooperation among colleagues (sự hợp tác giữa các đồng nghiệp)"], "Regular social activities can improve cooperation among colleagues.", "Những hoạt động xã hội thường xuyên có thể tăng cường sự hợp tác giữa các đồng nghiệp."],
+      [85, 3, "division", "/dɪˈvɪʒ.ən/", "n", "bộ phận, sự phân chia", "divide (v) chia ra, phân ra", "", ["automobile division (bộ phận ô tô)"], "The technician will transfer to the automobile division after training.", "Nhân viên kỹ thuật sẽ chuyển sang bộ phận ô tô sau khi được đào tạo."],
+      [86, 3, "request", "/rɪˈkwest/", "n, v", "lời yêu cầu, lời thỉnh cầu; yêu cầu", "", "commission (nhiệm vụ, sự ủy thác, nhờ vả)", ["upon request (theo yêu cầu)", "request for (yêu cầu cái gì)", "be requested to do (được nhờ làm gì)"], "Factory tours are available upon request.", "Các chuyến tham quan nhà máy đã được cung cấp theo yêu cầu."],
+      [87, 3, "efficiently", "/ɪˈfɪʃ.ənt.li/", "adv", "một cách hiệu quả", "efficient (adj) hiệu quả, efficiency (n) hiệu suất, hiệu quả", "", ["work more efficiently (làm việc hiệu quả hơn)"], "The software helps employees work more efficiently.", "Phần mềm này giúp cho các nhân viên làm việc hiệu quả hơn."],
+      [88, 3, "manage", "/ˈmæn.ɪdʒ/", "v", "quản lý, xoay xở, giải quyết được", "management (n) sự quản lý, manageable (adj) có thể quản lý, có thể điều khiển", "handle (xử lý), succeed (thành công)", ["manage to do (xoay sở, cố gắng để làm)", "under the new management (dưới sự điều hành mới)"], "They managed to do the assigned work in time.", "Họ đã giải quyết công việc được giao đúng thời gian."],
+      [89, 3, "submit", "/səbˈmɪt/", "v", "đệ trình, nộp", "submission (n) sự đệ trình", "turn in, hand in (nộp lại)", ["submit A to B (nộp A cho B)", "submit a résumé/receipt/recommendation/proposal (nộp sơ yếu lý lịch, hóa đơn, thư giới thiệu, bản đề xuất)"], "Applicants should submit a résumé to the personnel manager.", "Các ứng viên nên nộp sơ yếu lý lịch cho quản lý nhân sự."],
+      [90, 3, "directly", "/daɪˈrekt.li/", "adv", "trực tiếp, thẳng, ngay", "direct (v) hướng tới, nhắm, hướng dẫn, direction (n) phương hướng", "", ["report/contact/call directly (báo cáo/liên hệ/gọi trực tiếp)"], "All regional branches report directly to the head office in Washington.", "Tất cả chi nhánh khu vực đều báo cáo trực tiếp tới trụ sở chính tại Washington."],
+      [91, 3, "remind", "/rɪˈmaɪnd/", "v", "nhắc nhở", "reminder (n) vật làm nhớ lại (điều gì), lời nhắc nhở", "", ["remind sb of sth (nhắc ai về điều gì)", "remind sb to do sth (nhắc ai làm gì)", "be reminded to do (được nhắc nhở làm gì)"], "Ms. Williams reminded Mr. Johnson of his lunch meeting.", "Cô Williams đã nhắc ông Johnson về buổi gặp gỡ ăn trưa của ông ấy."],
+      [92, 3, "instruct", "/ɪnˈstrʌkt/", "v", "hướng dẫn, chỉ thị, dạy", "instruction (n) lời chỉ dẫn, instructor (n) người hướng dẫn", "", ["instruct someone to do (chỉ thị cho ai làm gì)"], "The manager instructed the staff to read the conference materials beforehand.", "Người quản lý chỉ thị cho các nhân viên đọc trước tài liệu của cuộc họp."],
+      [93, 3, "deadline", "/ˈded.laɪn/", "n", "hạn chót, thời hạn", "", "", ["ahead of the deadline (trước thời hạn)"], "The team worked together closely and finished the project ahead of the deadline.", "Cả nhóm đã làm việc chặt chẽ với nhau và hoàn thành dự án trước thời hạn."],
+      [94, 3, "sample", "/ˈsɑːm.pəl/", "n, v", "vật mẫu, mẫu thử; thử", "", "", ["prepare samples (chuẩn bị các mẫu thử)"], "We need to prepare samples of our products for the fair.", "Chúng ta cần chuẩn bị các mẫu thử của sản phẩm cho hội chợ."],
+      [95, 3, "notify", "/ˈnəʊ.tɪ.faɪ/", "v", "thông báo, cho biết", "notification (n) sự thông báo", "inform (thông báo, cho biết)", ["notify sb of sth (thông báo với ai về việc gì)", "notify in writing (thông báo bằng văn bản)"], "All staff applying for leave must notify their supervisors in writing.", "Tất cả các nhân viên xin nghỉ phép đều phải thông báo bằng văn bản cho quản lý trực tiếp của mình."],
+      [96, 3, "perform", "/pəˈfɔːm/", "v", "thi hành, thực hiện, hoạt động (việc, bài tập, nghĩa vụ)", "", "conduct (tiến hành, điều khiển), complete (hoàn thành)", ["perform repairs (tiến hành sửa chữa)"], "All work on the assembly line stopped while equipment repairs were being performed.", "Mọi hoạt động trên dây chuyền lắp ráp đều dừng lại trong khi việc sửa chữa thiết bị đang được tiến hành."],
+      [97, 3, "monitor", "/ˈmɒn.ɪ.tər/", "v, n", "giám sát, theo dõi; màn hình", "", "", ["monitor progress (giám sát tiến độ)"], "The new director will monitor progress on the project.", "Người quản lý mới sẽ giám sát tiến độ của dự án."],
+      [98, 3, "deserve", "/dɪˈzɜːv/", "v", "đáng, xứng đáng", "deserved (adj) xứng đáng", "", ["well-deserved advancement (sự tiến bộ xứng đáng)"], "The person with the highest performance evaluation deserves the Employee of the Year Award.", "Người được đánh giá có năng suất làm việc cao nhất xứng đáng nhận giải thưởng Nhân viên của năm."],
+      [99, 3, "assignment", "/əˈsaɪn.mənt/", "n", "công việc, nhiệm vụ, bài tập", "", "", ["take the assignment (nhận công việc)"], "Walter took the assignment in India because he was promised a promotion there.", "Walter nhận công việc ở Ấn Độ vì anh ấy được hứa hẹn sẽ được thăng chức ở đó."],
+      [100, 3, "entire", "/ɪnˈtaɪər/", "adj", "trọn vẹn, hoàn toàn", "entirety (n) trạng thái toàn vẹn, tính trọn vẹn", "", ["the entire team (cả nhóm)"], "The entire team gathers every Monday morning to discuss plans for the week.", "Cả nhóm tụ họp lại vào mỗi sáng thứ Hai để trao đổi về kế hoạch của tuần."],
+      [101, 3, "release", "/rɪˈliːs/", "v, n", "phát hành, phóng thích, làm nhẹ bớt; sự phát hành, sự ra mắt (sản phẩm)", "", "", ["press release (thông cáo báo chí)", "release date (ngày phát hành, ngày ra mắt)"], "The company released its annual report.", "Công ty đã phát hành báo cáo thường niên."],
+      [102, 3, "extension", "/ɪkˈsten.ʃən/", "n", "sự gia hạn, sự kéo dài, sự mở rộng, máy lẻ (điện thoại)", "extend (v) gia hạn, mở rộng, extensive (adj) rộng rãi, bao quát", "", ["an extension of the deadline (kéo dài thêm thời hạn)", "extension number (số máy lẻ)"], "The manager granted an extension of the deadline.", "Người quản lý đã cho phép kéo dài thêm thời hạn."],
+      [103, 3, "electronically", "/ˌel.ekˈtrɒn.ɪ.kəl.i/", "adv", "bằng điện tử", "electronic (adj) thuộc điện tử", "", ["send invoices electronically (gửi hóa đơn bằng phương thức điện tử)"], "It saves time and resources to send invoices electronically.", "Gửi hóa đơn bằng phương thức điện tử giúp tiết kiệm thời gian và tài nguyên."],
+      [104, 3, "attendance", "/əˈten.dəns/", "n", "sự tham gia, sự có mặt", "attend (v) tham dự, attendant (n) người tham gia, người phục vụ", "", ["attendance records (bảng điểm danh, bảng ghi chép về độ chuyên cần)", "a certificate of attendance (giấy chứng nhận tham gia)"], "Attendance records are taken into consideration when determining eligibility for promotion.", "Bảng ghi chép về độ chuyên cần sẽ được cân nhắc khi xem xét tiêu chuẩn để thăng chức."],
+      [105, 3, "absolutely", "/ˈæb.sə.luːt.li/", "adv", "hoàn toàn, chắc chắn, nhất định", "absolute (adj) tuyệt đối", "", ["absolutely necessary (chắc chắn cần thiết)"], "It is absolutely necessary that everyone on the board is in agreement with the plan.", "Chắc chắn là mọi người trong hội đồng quản trị đều cần phải đồng ý với kế hoạch này."],
+      [106, 3, "delegate", "/ˈdel.ɪ.ɡeɪt/", "v, n", "ủy quyền, ủy thác, giao phó; đại biểu, đại diện", "delegation (n) phái đoàn, đoàn đại biểu, sự ủy thác", "", ["delegate responsibilities (giao phó trách nhiệm)"], "Managers must be skilled in delegating responsibilities to subordinates.", "Quản lý phải khéo léo trong việc giao phó trách nhiệm cho cấp dưới của mình."],
+      [107, 3, "attentively", "/əˈten.tɪv.li/", "adv", "chăm chú, thận trọng", "", "", ["listen attentively (chăm chú lắng nghe)"], "Stockholders listened attentively as executives explained the company strategy.", "Các cổ đông chăm chú lắng nghe khi các ủy viên ban quản trị giải thích về chiến lược của công ty."],
+      [108, 3, "supervision", "/ˌsuː.pəˈvɪʒ.ən/", "n", "sự giám sát", "supervise (v) giám sát, quản lý, supervisor (n) người giám sát", "", ["close supervision (sự giám sát chặt chẽ)"], "Close supervision ensures high quality.", "Sự giám sát chặt chẽ sẽ đảm bảo hiệu quả cao."],
+      [109, 3, "workshop", "/ˈwɜːk.ʃɒp/", "n", "hội thảo, buổi đào tạo", "", "", ["speak at the workshop (phát biểu tại buổi hội thảo)"], "Mr. Kim was asked to speak at the workshop on Friday.", "Ông Kim được mời phát biểu tại buổi hội thảo vào thứ Sáu."],
+      [110, 3, "draw", "/drɔː/", "v", "lôi kéo, thu hút", "", "attract (thu hút)", ["draw praise/inspiration from sb (có được lời khen/cảm hứng từ ai)"], "The company's annual conference usually draws 800 employees from around the world.", "Hội nghị thường niên của công ty thường thu hút 800 nhân viên khắp nơi trên thế giới."],
+      [111, 3, "revision", "/rɪˈvɪʒ.ən/", "n", "sự sửa lại, duyệt lại", "revise (v) xem lại, duyệt lại, revised (adj) được sửa lại, ôn lại", "", ["make a revision (chỉnh sửa)", "revised edition (phiên bản được điều chỉnh)", "revised policy (chính sách được sửa đổi)"], "The team manager will make revisions to the proposal.", "Trưởng nhóm sẽ duyệt lại đề xuất đó."],
+      [112, 3, "reluctantly", "/rɪˈlʌk.tənt.li/", "adv", "miễn cưỡng, bất đắc dĩ", "", "", ["reluctantly agreed (miễn cưỡng đồng ý)"], "Ms. Danvers reluctantly agreed to cut the advertising budget.", "Bà Danvers miễn cưỡng đồng ý cắt ngân sách quảng cáo."],
+      [113, 3, "acquaint", "/əˈkweɪnt/", "v", "làm quen với, làm cho ai quen với", "acquaintance (n) người quen", "", ["acquaint A with B (= familiarize A with B) (làm cho A quen với B)"], "The training program acquaints new employees with company procedures.", "Chương trình đào tạo này giúp các nhân viên mới quen với các quy trình của công ty."],
+      [114, 3, "convey", "/kənˈveɪ/", "v", "truyền đạt, vận chuyển", "conveyor (n) thiết bị truyền tải, băng chuyền", "", ["convey A to B (chuyển A tới B)"], "The secretary urgently conveyed the message to the director.", "Thư ký vội vàng truyền đạt lại tin nhắn cho giám đốc."],
+      [115, 3, "check", "/tʃek/", "v, n", "kiểm tra, xem xét, xác nhận; vật cản, sự kiểm tra", "", "inspect, examine (kiểm tra, xem xét)", ["check A for B (kiểm tra A để xác nhận B)", "check for A (xác nhận A)"], "Please check your computer regularly for disk errors.", "Vui lòng kiểm tra máy tính thường xuyên để tránh bị lỗi đĩa."],
+      [116, 3, "headquarters", "/ˌhedˈkwɔː.təz/", "n", "trụ sở chính", "", "", ["company headquarters (trụ sở chính của công ty)"], "The company headquarters is located in London.", "Trụ sở chính của công ty được đặt ở London."],
+      [117, 3, "file", "/faɪl/", "v, n", "sắp xếp, lưu giữ (thư từ, giấy tờ), trình lên, đưa ra (văn kiện); hồ sơ, tài liệu", "", "", ["file a claim (yêu cầu bồi thường)", "filed in the storage room (cất trong phòng lưu trữ)"], "The department filed an insurance claim for the water damage in the conference room.", "Phòng này đã đưa ra yêu cầu đòi bồi thường bảo hiểm cho thiệt hại do ngập nước trong phòng hội nghị."],
+      [118, 3, "oversee", "/ˌəʊ.vəˈsiː/", "v", "quan sát, giám sát", "", "supervise (giám sát)", ["oversee the relocation process (giám sát quá trình chuyển văn phòng)"], "Natalie will oversee the office relocation process.", "Natalie sẽ giám sát quá trình chuyển văn phòng."],
+      [119, 3, "involved", "/ɪnˈvɒlvd/", "adj", "có tham gia vào, có liên quan", "involve (v) liên quan đến, involvement (n) sự liên quan, sự dính dáng", "", ["be involved in (có liên quan đến)"], "Dr. Mair was deeply involved in the decision-making process.", "Tiến sĩ Mair có liên quan rất nhiều vào quá trình đưa ra quyết định."],
+      [120, 3, "concentrate", "/ˈkɒn.sən.treɪt/", "v", "tập trung, chú tâm", "concentration (n) sự tập trung, concentrated (adj) tập trung", "", ["concentrate on (tập trung vào)", "concentrate A on B (tập trung A vào B)"], "The sales team concentrated on developing new strategies.", "Đội bán hàng đã tập trung vào việc phát triển chiến lược mới."],
+
+      // ==================== DAY 4: CÔNG VIỆC VĂN PHÒNG (2) (121 - 163) ====================
+      [121, 4, "lax", "/læks/", "adj", "không cẩn thận, không chú ý, thiếu nghiêm túc", "", "negligent (cẩu thả)", ["lax in turning in reports (thiếu nghiêm túc trong việc nộp báo cáo)"], "As of late, the staff has been rather lax in turning in reports.", "Gần đây, các nhân viên có phần hơi thiếu nghiêm túc trong việc nộp báo cáo."],
+      [122, 4, "procrastinate", "/prəˈkræs.tɪ.neɪt/", "v", "trì hoãn, chần chừ", "procrastination (n) sự trì hoãn", "ant. hurry, hasten (nhanh)", ["procrastinate with (trì hoãn việc gì)"], "Mr. Jones procrastinated with his fund request and missed the deadline.", "Ông Jones trì hoãn việc yêu cầu cấp kinh phí của mình và đã bỏ lỡ thời hạn."],
+      [123, 4, "combined", "/kəmˈbaɪnd/", "adj", "được kết hợp, chung, tổng hợp", "combine (v) kết hợp, combination (n) sự kết hợp", "joint (chung, được ghép lại, nối lại)", ["combined experience (kinh nghiệm tổng hợp)", "combined efforts (nỗ lực chung)"], "Retail Specialists employs professionals with a combined experience of 30 years in sales.", "Công ty Retail Specialists đã thuê những người chuyên nghiệp với 30 năm kinh nghiệm tổng hợp trong ngành bán hàng."],
+      [124, 4, "accomplish", "/əˈkʌm.plɪʃ/", "v", "hoàn thành, làm xong, đạt được, có đủ tài năng", "accomplishment (n) sự hoàn thành, accomplished (adj) đã hoàn thành, trọn vẹn", "achieve, fulfill (đạt được, làm trọn vẹn)", ["accomplish goals (hoàn thành mục tiêu)", "accomplished author (tác giả tài năng)"], "Careful planning is essential for accomplishing goals.", "Lập kế hoạch cẩn thận rất cần thiết cho việc hoàn thành mục tiêu."],
+      [125, 4, "voluntarily", "/ˈvɒl.ən.tər.əl.i/", "adv", "tự nguyện, tình nguyện", "voluntary (adj) tự nguyện, volunteer (n) tình nguyện viên", "ant. grudgingly (miễn cưỡng)", ["voluntarily took on (tình nguyện đảm nhiệm)"], "He voluntarily took on the challenging assignment in order to gain experience.", "Anh ấy tình nguyện đảm nhiệm công việc đầy thách thức để lấy kinh nghiệm."],
+      [126, 4, "undertake", "/ˌʌn.dəˈteɪk/", "v", "đảm nhận, tiếp quản", "", "", ["undertake the task (tiếp quản nhiệm vụ)"], "She had to undertake the task on short notice.", "Cô ấy phải tiếp quản nhiệm vụ đó khá gấp gáp."],
+      [127, 4, "assume", "/əˈsjuːm/", "v", "cho rằng, giả sử (là đúng); đảm đương, gánh vác", "assumption (n) sự giả định", "presume (cho là), take on, undertake (đảm nhiệm, gánh vác)", ["assume responsibility for (gánh vác trách nhiệm cho)"], "The marketing department will assume responsibility for the project.", "Bộ phận tiếp thị sẽ gánh vác trách nhiệm của dự án đó."],
+      [128, 4, "occasionally", "/əˈkeɪ.ʒən.əl.i/", "adv", "thỉnh thoảng, đôi khi", "occasion (n) dịp, occasional (adj) thỉnh thoảng", "", ["occasionally take time (thỉnh thoảng dành thời gian)"], "Staff should occasionally take time to relax so they do not get tired.", "Thỉnh thoảng các nhân viên nên dành thời gian thư giãn để không bị mệt mỏi."],
+      [129, 4, "employee", "/ɪmˈplɔɪ.iː/", "n", "nhân viên, người lao động", "", "", ["working under (làm việc dưới quyền)"], "There are only three employees working under Ms. Anderson.", "Chỉ có ba nhân viên làm việc dưới quyền cô Anderson."],
+      [130, 4, "assist", "/əˈsɪst/", "v", "trợ giúp, hỗ trợ", "assistant (n) trợ lý, assistance (n) sự giúp đỡ", "", ["assist with (hỗ trợ việc gì)"], "A staff member assisted with preparations for the conference.", "Một nhân viên đã hỗ trợ việc chuẩn bị cho hội nghị."],
+      [131, 4, "satisfied", "/ˈsæt.ɪs.faɪd/", "adj", "hài lòng, thỏa mãn", "", "", ["be satisfied with (hài lòng với)"], "Not everyone was satisfied with changes to the overtime policy.", "Không phải ai cũng thấy hài lòng với những thay đổi trong chính sách làm thêm giờ."],
+      [132, 4, "manner", "/ˈmæn.ər/", "n", "cách, lối; thái độ, cử chỉ", "", "", ["the manner in which (cái cách mà)"], "Sean was annoyed by the manner in which his boss gave him orders.", "Sean thấy bực mình với cái cách mà ông chủ ra lệnh cho anh ấy."],
+      [133, 4, "responsible", "/rɪˈspɒn.sə.bəl/", "adj", "có trách nhiệm, chịu trách nhiệm về", "responsibility (n) trách nhiệm", "", ["be responsible for (chịu trách nhiệm về)", "hold A responsible for B (bắt A chịu trách nhiệm cho B)"], "Businesses are responsible for ensuring customer satisfaction.", "Các doanh nghiệp có trách nhiệm đảm bảo sự hài lòng của khách hàng."],
+      [134, 4, "conduct", "/kənˈdʌkt/", "v, n", "tiến hành, chỉ đạo, điều khiển; sự thi hành (nghĩa vụ)", "", "carry out, perform (thi hành, thực hiện)", ["conduct an inspection (tiến hành kiểm tra)", "conduct a seminar (tổ chức hội thảo)", "conduct a research study (thực hiện điều tra nghiên cứu)"], "IJMR Ltd's technology department will conduct the research study.", "Bộ phận công nghệ của công ty IJMR sẽ tiến hành nghiên cứu này."],
+      [135, 4, "adjust", "/əˈdʒʌst/", "v", "điều chỉnh, làm cho thích hợp", "adjustment (n) sự điều chỉnh, adjustable (adj) có thể điều chỉnh được", "adapt (sửa lại cho phù hợp)", ["adjust to (thích ứng với)", "adjust A to B (làm cho A phù hợp với B)"], "The employees quickly adjusted to the new e-mail system.", "Các nhân viên đã nhanh chóng thích ứng với hệ thống thư điện tử mới."],
+      [136, 4, "personnel", "/ˌpɜː.sənˈel/", "n", "nhân viên, công chức", "", "", ["sales personnel (nhân viên bán hàng)", "temporary personnel (nhân viên thời vụ)"], "We often use an agency to find reliable temporary personnel.", "Chúng tôi thường sử dụng công ty môi giới để tìm những nhân viên thời vụ đáng tin cậy."],
+      [137, 4, "agree", "/əˈɡriː/", "v", "đồng ý", "agreement (n) sự đồng thuận, thỏa thuận", "", ["agree on + ý kiến (đồng ý, nhất trí với ý kiến)", "agree to + phương án/điều kiện (tán thành)", "agree with + người (đồng ý với ai)"], "The team agreed on the recommendations of the advisor.", "Nhóm đã đồng ý với những đề xuất của người cố vấn."],
+      [138, 4, "supervise", "/ˈsuː.pə.vaɪz/", "v", "giám sát", "", "", ["supervise the employees (giám sát các nhân viên)"], "Ms. Wilson supervises the employees in sector B.", "Cô Wilson giám sát các nhân viên ở khu vực B."],
+      [139, 4, "coworker", "/ˌkəʊˈwɜː.kər/", "n", "đồng nghiệp", "", "", ["travel to work together (đi làm cùng nhau)"], "Coworkers who live near each other often travel to work together.", "Những đồng nghiệp sống gần nhau thường đi làm cùng nhau."],
+      [140, 4, "direct", "/daɪˈrekt/", "v", "hướng dẫn, chỉ đạo", "direction (n) sự chỉ dẫn, chỉ thị, director (n) người hướng dẫn, đạo diễn, giám đốc, directly (adv) trực tiếp", "", ["direct A to B (hướng dẫn A tới B)"], "The receptionist directs new employees to the auditorium where orientation will be held.", "Nhân viên lễ tân hướng dẫn các nhân viên mới tới hội trường nơi buổi định hướng sẽ được tổ chức."],
+      [141, 4, "confidential", "/ˌkɒn.fɪˈden.ʃəl/", "adj", "bí mật, cẩn mật, tuyệt mật", "confidentiality (n) sự cẩn mật, confidentially (adv) một cách cẩn mật", "classified, secret (bí mật, kín đáo)", ["kept confidential (được giữ bí mật)"], "Internal documents must be kept confidential.", "Tài liệu nội bộ phải được giữ bí mật."],
+      [142, 4, "assign", "/əˈsaɪn/", "v", "phân công, bổ nhiệm", "assigned (adj) được giao, assignment (n) nhiệm vụ (= task)", "", ["assign desks to (phân bàn làm việc cho)"], "The office manager assigned desks to the new recruits.", "Người quản lý văn phòng đã phân bàn làm việc cho các nhân viên mới."],
+      [143, 4, "leading", "/ˈliː.dɪŋ/", "adj, n", "dẫn đầu, tiên phong, hàng đầu; sự chỉ đạo, thống soái", "", "", ["leading company (công ty hàng đầu)", "leading exporter (công ty xuất khẩu hàng đầu)"], "Shepherd Inc. is a leading exporter in the wood furniture industry.", "Tập đoàn Shepherd là công ty xuất khẩu hàng đầu trong mảng đồ gỗ nội thất."],
+      [144, 4, "formal", "/ˈfɔː.məl/", "adj", "trang trọng, chính thức", "", "", ["formal business attire (trang phục trang trọng)"], "The awards ceremony requires wearing formal business attire.", "Buổi lễ trao giải yêu cầu phải mặc trang phục trang trọng."],
+      [145, 4, "remove", "/rɪˈmuːv/", "v", "xóa, dẹp; đuổi, cách chức", "", "", ["remove A from B (cách chức/xóa bỏ/dọn A khỏi B)"], "The vice president was removed from his position because of a scandal.", "Ông phó chủ tịch đã bị cách chức khỏi vị trí của mình."],
+      [146, 4, "collect", "/kəˈlekt/", "v", "thu thập, tập hợp", "collective (adj) tập thể, chung", "", ["collect ideas (tập hợp các ý tưởng)"], "The author collected management ideas from around the world for his book.", "Tác giả đã tập hợp các ý tưởng về quản lý từ khắp nơi trên thế giới cho cuốn sách của mình."],
+      [147, 4, "coordinate", "/kəʊˈɔː.dɪ.neɪt/", "v", "điều phối, kết hợp", "coordinator (n) điều phối viên, người phụ trách, coordination (n) sự phối hợp", "", ["coordinate the planning process (điều phối quá trình lên kế hoạch)"], "The Chicago office coordinated the planning process.", "Văn phòng ở Chicago đã điều phối quá trình lên kế hoạch."],
+      [148, 4, "hardly", "/ˈhɑːd.li/", "adv", "hiếm khi, khó khăn, hầu như không", "", "", ["hardly ever (hiếm khi, hầu như không)"], "She was hardly ever late for her shift.", "Cô ấy hiếm khi trễ ca làm."],
+      [149, 4, "abstract", "/ˈæb.strækt/", "adj", "trừu tượng, mơ hồ", "", "", ["abstract painting (bức tranh trừu tượng)"], "Copland spent thousands of dollars on an abstract painting for the lobby.", "Copland đã chi hàng nghìn đô-la cho một bức tranh trừu tượng để treo ở tiền sảnh."],
+      [150, 4, "directory", "/daɪˈrek.tər.i/", "n", "danh bạ, sổ địa chỉ", "", "", ["company directory (danh bạ của công ty)"], "The company directory shows where the marketing department is.", "Danh bạ của công ty sẽ cho biết phòng tiếp thị nằm ở đâu."],
+      [151, 4, "accountable", "/əˈkaʊn.tə.bəl/", "adj", "chịu trách nhiệm, có thể giải thích được", "accountability (n) trách nhiệm giải trình", "", ["be accountable for A (chịu trách nhiệm về A)", "hold A accountable for B (bắt A chịu trách nhiệm về B)", "be accountable to A (có trách nhiệm với A)"], "All employees are accountable for the duties they have been assigned to complete.", "Mọi nhân viên phải chịu trách nhiệm cho các nhiệm vụ mà họ được giao để hoàn thành."],
+      [152, 4, "skillfully", "/ˈskɪl.fəl.i/", "adv", "thành thạo, khéo léo", "skillful (adj) đầy kỹ năng, thành thạo", "", ["skillfully edited (khéo léo chỉnh sửa)"], "Brenda skillfully edited the report to fit on one page.", "Brenda đã khéo léo chỉnh sửa bản báo cáo cho vừa một trang giấy."],
+      [153, 4, "exclusive", "/ɪkˈskluː.sɪv/", "adj", "riêng biệt, độc quyền", "", "", ["exclusive access (được tham gia riêng)"], "Delegates with special passes have exclusive access to a tour of the facilities.", "Các đại biểu có thẻ đặc biệt sẽ được tham gia riêng một chuyến tham quan thực địa."],
+      [154, 4, "intention", "/ɪnˈten.ʃən/", "n", "ý định, mục đích, ý muốn", "intent (n) ý định, mục đích, intend (v) dự định, định, intentional (adj) cố ý, có chủ ý, intently (adv) chăm chú", "", ["have every intention of -ing (nhất định phải làm gì)"], "She had every intention of attending the conference, but could not.", "Cô ấy có ý định tham dự hội thảo nhưng lại không thể."],
+      [155, 4, "transform", "/trænsˈfɔːm/", "v", "biến đổi, thay đổi", "transformation (n) sự biến đổi", "", ["transform the way (thay đổi cách thức)"], "Computerization has transformed the way companies do business.", "Vi tính hóa đã thay đổi cách các công ty làm việc."],
+      [156, 4, "respectful", "/rɪˈspekt.fəl/", "adj", "tôn trọng, lễ phép, kính cẩn", "respect (v) tôn trọng, đánh giá cao, respectfully (adv) một cách kính cẩn, respectable (adj) đáng kính", "", ["respect for (tôn trọng vì)", "with respect (với sự tôn trọng)", "be respectful to (tôn trọng ai)"], "Sales clerks are reminded to be respectful to all clients.", "Các nhân viên bán hàng được nhắc nhở phải tôn trọng tất cả khách hàng."],
+      [157, 4, "duplicate", "/ˈdʒuː.plɪ.kət/", "n", "bản sao", "", "syn. copy (bản sao), ant. original (nguyên bản)", ["in duplicate (nhân đôi)", "make duplicates of (sao chép lại cái gì)"], "A duplicate of each contract is kept in the company records.", "Bản sao của mỗi hợp đồng được lưu trữ trong tài liệu hồ sơ của công ty."],
+      [158, 4, "contrary", "/ˈkɒn.trə.ri/", "n", "sự trái ngược, điều ngược lại", "", "", ["evidence to the contrary (bằng chứng chứng minh điều ngược lại)", "on the contrary (trái lại, ngược lại)", "to the contrary (điều ngược lại)"], "Techworld is in financial trouble, despite claims to the contrary.", "Techworld đang gặp khó khăn về tài chính mặc dù họ tuyên bố điều ngược lại."],
+      [159, 4, "disturbing", "/dɪˈstɜː.bɪŋ/", "adj", "làm nhiễu loạn, làm xáo trộn", "disturb (v) làm phiền, disturbance (n) sự làm phiền", "", ["find reports disturbing (nhận thấy báo cáo gây nhiễu loạn)"], "Shareholders found reports of the CEO's incompetence disturbing.", "Các cổ đông nhận thấy những báo cáo về sự kém cỏi của vị giám đốc điều hành thật gây nhiễu loạn."],
+      [160, 4, "engage", "/ɪnˈɡeɪdʒ/", "v", "tham gia, cam kết, thu hút", "engagement (n) sự hứa hẹn, sự cam kết (= appointment), engaging (adj) cuốn hút, duyên dáng", "", ["engage in / be engaged in (tham gia vào, liên quan đến)"], "Each worker was engaged in at least two projects.", "Mỗi công nhân đều được tham gia vào ít nhất hai dự án."],
+      [161, 4, "foster", "/ˈfɒs.tər/", "v", "thúc đẩy, bồi dưỡng, bồi đắp", "", "", ["foster better work relations (bồi đắp mối quan hệ tốt hơn trong công việc)"], "Staff dinners helped foster better work relations.", "Những bữa tối giữa các nhân viên đã giúp bồi đắp mối quan hệ tốt hơn trong công việc."],
+      [162, 4, "neutrality", "/njuːˈtræl.ə.ti/", "n", "tính chất trung lập, thái độ trung lập", "neutral (adj) trung lập, (n) nước trung lập, người trung lập, neutrally (adv) một cách trung lập", "", ["display complete neutrality (giữ thái độ hoàn toàn trung lập)"], "Managers must display complete neutrality in disagreements between employees.", "Người quản lý phải giữ thái độ hoàn toàn trung lập trong những cuộc tranh cãi giữa các nhân viên."],
+      [163, 4, "widely", "/ˈwaɪd.li/", "adv", "rộng, nhiều, xa", "wide (adj) rộng, width (n) bề rộng, widen (v) mở rộng, widening (n) sự mở rộng", "", ["be widely advertised (được quảng cáo rộng rãi)", "widely admired (được nhiều người ngưỡng mộ)", "a wide range of (một loạt, rộng lớn, đa dạng)"], "Ben Hurley is a widely admired business leader.", "Ben Hurley là một nhà điều hành doanh nghiệp được nhiều người ngưỡng mộ."],
+
+      // ==================== DAY 5: CÔNG VIỆC VĂN PHÒNG (3) (164 - 203) ====================
+      [164, 5, "sophisticated", "/səˈfɪs.tɪ.keɪ.tɪd/", "adj", "tinh vi, tinh tế, phức tạp, công phu", "sophistication (n) sự tinh vi", "complex (phức tạp), refined (công phu)", ["sophisticated surveillance system (hệ thống giám sát tinh vi)", "sophisticated taste (gu thẩm mĩ rất tinh tế)"], "A sophisticated surveillance system was installed.", "Một hệ thống giám sát tinh vi đã được cài đặt."],
+      [165, 5, "timely", "/ˈtaɪm.li/", "adj", "kịp thời", "", "", ["in a timely manner (kịp thời)"], "The report was completed in a timely manner.", "Bản báo cáo đã được hoàn thành kịp thời."],
+      [166, 5, "realistically", "/ˌrɪəˈlɪs.tɪ.kəl.i/", "adv", "theo thực tế, thực tế là", "realistic (adj) thực tế, realism (n) chủ nghĩa hiện thực", "", ["cannot realistically expect (thực tế là không thể mong đợi)", "realistic expectation/goal/alternative/chance (kỳ vọng/mục tiêu/phương án/cơ hội thực tế)"], "We cannot realistically expect to have the presentation ready on time.", "Thực tế là chúng tôi không thể mong đợi bài thuyết trình đó được hoàn thành kịp thời hạn."],
+      [167, 5, "promptly", "/ˈprɒmpt.li/", "adv", "nhanh chóng, ngay lập tức, đúng giờ", "prompt (adj) mau lẹ, nhanh chóng, (v) xúi giục, thúc giục", "immediately, instantly (ngay lập tức, ngay tức khắc)", ["respond promptly (phản hồi ngay lập tức)", "leave promptly at (rời đi đúng giờ lúc)"], "It is company policy to respond promptly to all inquiries.", "Chính sách của công ty là phản hồi mọi thắc mắc ngay lập tức."],
+      [168, 5, "accessible", "/əkˈses.ə.bəl/", "adj", "có thể truy cập/tiếp cận được, có thể sử dụng được", "access (n) sự truy cập, (v) truy cập, tiếp cận, accessibility (n) khả năng truy cập", "", ["make A accessible to B (làm cho B sử dụng được A)", "accessible by bus/subway/train (có thể đi bằng xe buýt/tàu điện ngầm/tàu hỏa)"], "The 18th floor is only accessible to executive staff.", "Chỉ nhân viên hành chính mới được sử dụng tầng 18."],
+      [169, 5, "implement", "/ˈɪm.plɪ.ment/", "v", "thi hành, tiến hành", "implementation (n) sự thi hành", "carry out, execute (thi hành, thực hiện)", ["implement a plan (thực hiện một kế hoạch)", "implement measures (thực hiện các biện pháp)"], "Board members voted to implement an innovative marketing campaign.", "Các thành viên hội đồng quản trị đã biểu quyết để tiến hành một chiến dịch tiếp thị sáng tạo."],
+      [170, 5, "feedback", "/ˈfiːd.bæk/", "n", "phản hồi, ý kiến nhận xét", "", "", ["feedback from colleagues (ý kiến nhận xét từ các đồng nghiệp)"], "Feedback from colleagues can be of great assistance.", "Ý kiến nhận xét từ các đồng nghiệp có thể là một sự trợ giúp rất lớn."],
+      [171, 5, "outstanding", "/ˌaʊtˈstæn.dɪŋ/", "adj", "nổi bật, đáng chú ý; còn tồn tại, chưa trả (tiền nợ)", "", "exceptional (nổi bật), overdue, unpaid (chưa giải quyết xong, chưa trả xong)", ["outstanding business plan (kế hoạch kinh doanh xuất sắc)", "outstanding debt (khoản nợ còn tồn đọng)"], "The director presented an outstanding business plan.", "Giám đốc đã trình bày một kế hoạch kinh doanh xuất sắc."],
+      [172, 5, "inform", "/ɪnˈfɔːm/", "v", "thông báo, báo tin", "information (n) thông tin, informative (adj) nhiều thông tin, kiến thức", "", ["inform of sth/mệnh đề that (cho ai biết về điều gì)"], "Please inform the director that the meeting has been canceled.", "Vui lòng báo cho giám đốc biết là cuộc họp đã bị hủy."],
+      [173, 5, "replacement", "/rɪˈpleɪs.mənt/", "n", "sự thay thế, vật/người thay thế", "", "", ["a replacement for (sự/người/vật thay thế cho)"], "We need a replacement for this broken laptop.", "Chúng ta cần một chiếc máy thay cho chiếc máy tính xách tay bị hỏng này."],
+      [174, 5, "announcement", "/əˈnaʊns.mənt/", "n", "thông cáo, thông báo", "announce (v) thông báo", "", ["post an announcement (đăng một thông báo)"], "Mr. Dane posted an announcement about the general meeting.", "Ông Dane đã đăng một thông báo về đại hội cổ đông."],
+      [175, 5, "department", "/dɪˈpɑːt.mənt/", "n", "bộ, ban, bộ phận của một đơn vị (chính phủ, trường học, công ty, v.v.)", "", "", ["finance department (bộ phận tài chính)"], "Report payroll problems to the finance department.", "Hãy báo cáo những vấn đề về tiền lương cho bộ phận tài chính."],
+      [176, 5, "permanently", "/ˈpɜː.mə.nənt.li/", "adv", "vĩnh cửu, lâu dài, vĩnh viễn", "", "indefinitely (vô hạn)", ["permanently deleted (đã bị xóa vĩnh viễn)"], "The computer files have been permanently deleted and cannot be retrieved.", "Các tệp tin trên máy tính đã bị xóa vĩnh viễn và không thể lấy lại được."],
+      [177, 5, "fulfill", "/fʊlˈfɪl/", "v", "hoàn thành, đáp ứng (yêu cầu), thực thi, giữ (lời hứa, nghĩa vụ)", "fulfillment (n) sự hoàn thành", "meet (đáp ứng, thỏa mãn)", ["fulfill the terms of the contract (đáp ứng được các điều khoản trong hợp đồng)"], "The final product design fulfilled the terms of the contract.", "Thiết kế cuối của sản phẩm đã đáp ứng được các điều khoản trong hợp đồng."],
+      [178, 5, "outline", "/ˈaʊt.laɪn/", "n, v", "bản thảo, nét phác thảo, dàn bài; vẽ phác thảo, vạch ra, chỉ ra những ý chính", "", "", ["arrange main ideas in an outline (sắp xếp những ý chính thành một dàn bài)", "outline the features (chỉ ra các tính năng)"], "Begin making the report by arranging the main ideas in an outline.", "Hãy bắt đầu làm báo cáo bằng việc sắp xếp những ý chính thành một dàn bài."],
+      [179, 5, "explain", "/ɪkˈspleɪn/", "v", "giải thích, giảng giải", "explanation (n) sự giải thích", "", ["explain A to B (giải thích A cho B)"], "The manager explained the new regulations to everyone in the department.", "Người quản lý giải thích những quy định mới cho mọi người trong phòng."],
+      [180, 5, "contain", "/kənˈteɪn/", "v", "bao gồm, chứa", "", "include (bao gồm)", ["contain copies of invoices (chứa bản sao của các hóa đơn)"], "The filing cabinet contains copies of all our invoices.", "Tủ hồ sơ chứa bản sao tất cả các hóa đơn của chúng ta."],
+      [181, 5, "compile", "/kəmˈpaɪl/", "v", "biên soạn, tập hợp, tổng hợp (tài liệu)", "", "", ["compile a list (tổng hợp một danh sách)", "compile reports (tập hợp các báo cáo)"], "The assistant compiled a list of tablet computer manufacturers.", "Người trợ lý đã tổng hợp một danh sách các nhà sản xuất máy tính bảng."],
+      [182, 5, "subsequent", "/ˈsʌb.sɪ.kwənt/", "adj", "đến sau, xảy ra sau", "", "", ["subsequent to (sau khi)"], "Some employees received separation pay subsequent to the company's closing.", "Một số nhân viên đã nhận được khoản tiền bồi thường thôi việc sau khi công ty bị đóng cửa."],
+      [183, 5, "overview", "/ˈəʊ.və.vjuː/", "n", "tổng quát, khái quát", "", "", ["give an overview of (đưa ra một cái nhìn khái quát về)"], "Scott gave an overview of the topic before the presentation.", "Scott đã đưa ra một cái nhìn khái quát về chủ đề trước khi thuyết trình."],
+      [184, 5, "provider", "/prəˈvaɪ.dər/", "n", "người cung cấp, nhà cung cấp", "", "", ["Internet and cable providers (nhà cung cấp dịch vụ Internet và truyền hình cáp)"], "There are numerous Internet and cable providers in the city.", "Có rất nhiều nhà cung cấp dịch vụ Internet và truyền hình cáp trong thành phố."],
+      [185, 5, "matter", "/ˈmæt.ər/", "n, v", "vấn đề, công việc; quan trọng, trở thành vấn đề", "", "", ["personal matters (các vấn đề cá nhân)"], "Please deal with personal matters outside the office.", "Vui lòng giải quyết các vấn đề cá nhân ở ngoài văn phòng."],
+      [186, 5, "expertise", "/ˌek.spɜːˈtiːz/", "n", "sự tinh thông, sự thành thạo, kỹ năng chuyên môn", "expert (n) chuyên gia", "", ["have expertise in A (có năng lực chuyên môn về A)", "area of expertise (lĩnh vực chuyên môn)"], "This kind of project falls outside the firm's area of expertise.", "Loại dự án này nằm ngoài lĩnh vực chuyên môn của công ty."],
+      [187, 5, "demonstrate", "/ˈdem.ən.streɪt/", "v", "chứng minh, minh họa, biểu lộ, cho thấy", "demonstration (n) sự chứng minh", "prove (chứng minh), explain (giải thích)", ["demonstrate how to use (minh họa cách sử dụng)"], "Sales figures demonstrate that the advertising campaign was successful.", "Các số liệu bán hàng chứng minh rằng chiến dịch quảng cáo đã thành công."],
+      [188, 5, "remainder", "/rɪˈmeɪn.dər/", "n", "người/vật còn lại, phần còn lại", "remain (v) giữ nguyên, remaining (adj) còn lại", "balance (tiền còn lại, số dư)", ["throughout the remainder of + thời gian (trong suốt phần còn lại của thời gian)"], "Audits will continue throughout the remainder of the month.", "Việc kiểm toán sẽ tiếp tục trong suốt thời gian còn lại của tháng."],
+      [189, 5, "essential", "/ɪˈsen.ʃəl/", "adj", "cần thiết, thiết yếu, cốt yếu", "", "", ["be essential to/for (cần thiết để/cho)"], "Perseverance is essential to success in business.", "Sự kiên trì rất cần thiết để thành công trong kinh doanh."],
+      [190, 5, "divide", "/dɪˈvaɪd/", "v", "chia ra, phân chia", "division (n) sự phân chia, dividend (n) tiền lãi cổ phần", "break up (chia ra)", ["divide A into B (chia A thành B)", "be divided into (được phân chia thành)"], "Required overtime will be divided equally among employees.", "Thời gian làm ngoài giờ bắt buộc sẽ được phân chia công bằng giữa các nhân viên."],
+      [191, 5, "major", "/ˈmeɪ.dʒər/", "adj", "chủ yếu, chủ chốt, trọng đại", "", "", ["a major figure (một nhân vật chủ chốt)", "a major impact (một ảnh hưởng quan trọng)"], "The new manager has had a major impact on productivity.", "Người quản lý mới có một ảnh hưởng quan trọng tới năng suất làm việc."],
+      [192, 5, "compliance", "/kəmˈplaɪ.əns/", "n", "sự tuân theo, sự phục tùng (mệnh lệnh, luật pháp)", "comply (v) tuân theo", "", ["in compliance with (tuân theo điều gì)", "out of compliance with (không tuân theo điều gì)"], "Government officials will inspect the plant's compliance with safety guidelines.", "Các quan chức chính phủ sẽ giám sát việc tuân thủ các quy định an toàn của nhà máy."],
+      [193, 5, "clarify", "/ˈklær.ɪ.faɪ/", "v", "sàng lọc, làm rõ", "clarification (n) sự sàng lọc", "", ["clarify some details (làm rõ một số chi tiết)"], "The notice clarified some details of the vacation policy modifications.", "Thông báo đã làm rõ một số chi tiết trong những thay đổi về chính sách nghỉ phép."],
+      [194, 5, "face", "/feɪs/", "v, n", "đương đầu, đối mặt, hướng về; gương mặt, bề mặt", "", "confront (đối đầu)", ["be faced with the challenge (phải đối mặt với thách thức)"], "Businesses are faced with the challenge of foreign competition.", "Các doanh nghiệp phải đối mặt với thách thức cạnh tranh từ nước ngoài."],
+      [195, 5, "follow", "/ˈfɒl.əʊ/", "v", "làm theo, theo dõi, chú ý, theo kịp", "following (prep) sau, tiếp theo, (adj) dưới đây", "monitor (giám sát, theo dõi), pay attention to (chú ý tới), understand (hiểu, nhận thức được)", ["follow the guide (đi theo chỉ dẫn)", "follow conversations closely (theo dõi sát sao các cuộc trao đổi)"], "The guests followed the guide into the exhibition hall.", "Các vị khách đi theo chỉ dẫn vào trong sảnh triển lãm."],
+      [196, 5, "aspect", "/ˈæs.pekt/", "n", "khía cạnh", "", "", ["every aspect of the problem (mọi khía cạnh của vấn đề)"], "Every aspect of the problem must be taken into consideration.", "Mọi khía cạnh của vấn đề này đều phải được cân nhắc."],
+      [197, 5, "apparently", "/əˈpær.ənt.li/", "adv", "hình như", "", "seemingly (có vẻ)", ["apparently not invited (hình như không được mời)"], "Apparently, Mr. Jones was not invited to this meeting.", "Hình như ông Jones không được mời tới buổi họp này."],
+      [198, 5, "aware", "/əˈweər/", "adj", "biết, nhận thấy, nhận thức được", "awareness (n) sự nhận thức", "", ["be aware of / mệnh đề that (biết/ý thức về điều gì)"], "Workers should be made aware of safety procedures.", "Cần cho công nhân biết về các quy trình an toàn."],
+      [199, 5, "extended", "/ɪkˈsten.dɪd/", "adj", "mở rộng, kéo dài", "extend (v) mở rộng, extension (n) sự mở rộng", "", ["work extended hours (làm tăng giờ, làm thêm giờ)", "extended lunch break (giờ nghỉ trưa được kéo dài)"], "The accounting department works extended hours on the first week of every month.", "Bộ phận kế toán phải làm thêm giờ vào tuần đầu tiên hằng tháng."],
+      [200, 5, "accidentally", "/ˌæk.sɪˈden.təl.i/", "adv", "tình cờ, ngoài ý muốn", "accident (n) tai nạn, accidental (adj) tình cờ", "ant. deliberately (có chủ ý)", ["accidentally made errors (vô tình mắc sai sót)"], "Alison accidentally made some errors in the financial statements.", "Alison đã vô tình mắc một vài sai sót trong báo cáo tài chính."],
+      [201, 5, "advisable", "/ədˈvaɪ.zə.bəl/", "adj", "nên làm, thích hợp", "advise (v) khuyên nhủ, advice (n) lời khuyên", "", ["it is advisable to do (làm việc gì là việc nên làm)"], "It is advisable to update computer equipment regularly.", "Nâng cấp thiết bị máy tính thường xuyên là việc nên làm."],
+      [202, 5, "concerned", "/kənˈsɜːnd/", "adj", "lo lắng, lo âu, có liên quan đến", "concern (n) sự lo lắng, mối quan ngại, (v) liên quan tới, lo ngại", "", ["be concerned about (lo lắng về)", "be concerned with (có liên quan đến)"], "Management is concerned about security.", "Ban quản lý đang lo lắng về vấn đề an ninh."],
+      [203, 5, "speak", "/spiːk/", "v", "nói", "", "", ["speak to sb about sth (nói với ai về điều gì)", "speak + ngôn ngữ (nói ngôn ngữ gì)"], "Mr. Brooke spoke to his clients about a new venture.", "Ông Brooke đã nói với các khách hàng của mình về một dự án kinh doanh mạo hiểm mới."]
+    ];
+
+    const VOCAB_DATA = RAW_VOCAB_DATA.map(item => ({
+      id: item[0],
+      day: item[1],
+      word: item[2],
+      ipa: item[3],
+      pos: item[4],
+      meaning: item[5],
+      der: item[6],
+      syn: item[7],
+      collocations: item[8],
+      exEn: item[9],
+      exVi: item[10]
+    }));
+
+    // =========================================================================
+    // 2. HÀM TẠO HÌNH MINH HỌA VECTOR SVG THEO CHỦ ĐỀ TỪNG DAY
+    // =========================================================================
+    function getTopicSvg(day, id) {
+      if (day === 1) {
+        return `
+          <svg viewBox="0 0 160 160" class="w-full h-full drop-shadow-xs">
+            <circle cx="80" cy="80" r="68" fill="#EBF3FF" />
+            <rect x="44" y="28" width="72" height="96" rx="10" fill="#FFFFFF" stroke="#0A84FF" stroke-width="3.5" />
+            <circle cx="68" cy="54" r="10" fill="#D0E2FF" stroke="#0A84FF" stroke-width="2.5" />
+            <path d="M54 74 C54 66, 82 66, 82 74" fill="none" stroke="#0A84FF" stroke-width="2.5" stroke-linecap="round" />
+            <line x1="90" y1="50" x2="104" y2="50" stroke="#0A84FF" stroke-width="3" stroke-linecap="round" />
+            <line x1="90" y1="60" x2="104" y2="60" stroke="#93C5FD" stroke-width="3" stroke-linecap="round" />
+            <line x1="56" y1="88" x2="104" y2="88" stroke="#CBD5E1" stroke-width="3" stroke-linecap="round" />
+            <line x1="56" y1="100" x2="96" y2="100" stroke="#CBD5E1" stroke-width="3" stroke-linecap="round" />
+            <circle cx="110" cy="112" r="18" fill="#0A84FF" />
+            <path d="M102 112 L108 118 L119 106" fill="none" stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>`;
+      } else if (day === 2) {
+        return `
+          <svg viewBox="0 0 160 160" class="w-full h-full drop-shadow-xs">
+            <circle cx="80" cy="80" r="68" fill="#EEF2FF" />
+            <path d="M80 26 L124 44 V82 C124 110 104 128 80 136 C56 128 36 110 36 82 V44 Z" fill="#FFFFFF" stroke="#0A84FF" stroke-width="3.5" stroke-linejoin="round" />
+            <path d="M80 36 L114 50 V81 C114 103 98 118 80 125 C62 118 46 103 46 81 V50 Z" fill="#D0E2FF" opacity="0.6" />
+            <path d="M64 80 L75 91 L98 67" fill="none" stroke="#0A84FF" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>`;
+      } else if (day === 3) {
+        return `
+          <svg viewBox="0 0 160 160" class="w-full h-full drop-shadow-xs">
+            <circle cx="80" cy="80" r="68" fill="#E0F2FE" />
+            <rect x="34" y="42" width="82" height="76" rx="12" fill="#FFFFFF" stroke="#0A84FF" stroke-width="3.5" />
+            <path d="M34 54 C34 47 39 42 46 42 H104 C111 42 116 47 116 54 V64 H34 Z" fill="#0A84FF" />
+            <circle cx="52" cy="80" r="4" fill="#0A84FF" />
+            <circle cx="72" cy="80" r="4" fill="#94A3B8" />
+            <circle cx="92" cy="80" r="4" fill="#94A3B8" />
+            <circle cx="52" cy="98" r="4" fill="#94A3B8" />
+            <circle cx="72" cy="98" r="4" fill="#0A84FF" />
+            <circle cx="114" cy="108" r="20" fill="#FFFFFF" stroke="#0A84FF" stroke-width="3.5" />
+            <path d="M114 98 V108 L121 112" fill="none" stroke="#0A84FF" stroke-width="3" stroke-linecap="round" />
+          </svg>`;
+      } else if (day === 4) {
+        return `
+          <svg viewBox="0 0 160 160" class="w-full h-full drop-shadow-xs">
+            <circle cx="80" cy="80" r="68" fill="#ECFDF5" />
+            <rect x="42" y="84" width="16" height="36" rx="4" fill="#93C5FD" />
+            <rect x="72" y="66" width="16" height="54" rx="4" fill="#3B82F6" />
+            <rect x="102" y="44" width="16" height="76" rx="4" fill="#0A84FF" />
+            <path d="M44 68 L74 48 L96 54 L116 32" fill="none" stroke="#10B981" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+            <circle cx="116" cy="32" r="5" fill="#10B981" />
+            <line x1="34" y1="122" x2="126" y2="122" stroke="#64748B" stroke-width="3" stroke-linecap="round" />
+          </svg>`;
+      } else {
+        return `
+          <svg viewBox="0 0 160 160" class="w-full h-full drop-shadow-xs">
+            <circle cx="80" cy="80" r="68" fill="#EFF6FF" />
+            <rect x="32" y="48" width="96" height="66" rx="12" fill="#FFFFFF" stroke="#0A84FF" stroke-width="3.5" />
+            <path d="M36 52 L80 84 L124 52" fill="none" stroke="#0A84FF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+            <circle cx="122" cy="48" r="14" fill="#F59E0B" />
+            <text x="122" y="53" text-anchor="middle" fill="#FFFFFF" font-size="16" font-weight="bold">!</text>
+          </svg>`;
+      }
+    }
+
+    // =========================================================================
+    // 3. HỆ THỐNG PHÁT ÂM GIỌNG NÓI (WEB SPEECH API)
+    // =========================================================================
+    let preferredVoice = null;
+
+    function loadVoices() {
+      if (!('speechSynthesis' in window)) return;
+      const voices = window.speechSynthesis.getVoices();
+      preferredVoice =
+        voices.find(v => v.lang === 'en-US' && (v.name.includes('Google') || v.name.includes('Natural') || v.name.includes('Samantha'))) ||
+        voices.find(v => v.lang === 'en-US') ||
+        voices.find(v => v.lang.startsWith('en'));
+    }
+
+    if ('speechSynthesis' in window) {
+      loadVoices();
+      window.speechSynthesis.onvoiceschanged = loadVoices;
+    }
+
+    function speakText(text, rate = 0.95, btnElement = null) {
+      if (!('speechSynthesis' in window)) {
+        showToast('Trình duyệt của bạn không hỗ trợ phát âm thanh tự động.');
+        return;
+      }
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(text);
+      if (preferredVoice) utterance.voice = preferredVoice;
+      utterance.lang = 'en-US';
+      utterance.rate = rate;
+
+      if (btnElement) {
+        btnElement.classList.add('speaking-pulse');
+        utterance.onend = () => btnElement.classList.remove('speaking-pulse');
+        utterance.onerror = () => btnElement.classList.remove('speaking-pulse');
+      }
+
+      window.speechSynthesis.speak(utterance);
+    }
+
+    function showToast(msg) {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      toast.className = 'bg-slate-900 text-white text-xs sm:text-sm font-medium px-4 py-2.5 rounded-xl shadow-lg transition-opacity duration-300';
+      toast.textContent = msg;
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        setTimeout(() => toast.remove(), 300);
+      }, 2400);
+    }
+
+    function shuffleArray(arr) {
+      const copy = [...arr];
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+
+    function clampRange(startVal, endVal) {
+      let s = parseInt(startVal, 10) || 1;
+      let e = parseInt(endVal, 10) || 40;
+      s = Math.max(1, Math.min(203, s));
+      e = Math.max(1, Math.min(203, e));
+      if (s > e) [s, e] = [e, s];
+      return [s, e];
+    }
+
+    function normalizeText(str) {
+      return (str || '')
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/đ/g, 'd')
+        .replace(/[^a-z0-9\s-]/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+    }
+
+    // Tự động loại bỏ dấu tiếng Việt (Unikey/Telex/VNI) khi đang ở chế độ gõ tiếng Anh
+    function stripVietnameseAccentsForEnglishInput(inputEl) {
+      if (!inputEl) return;
+      const start = inputEl.selectionStart;
+      const end = inputEl.selectionEnd;
+      const original = inputEl.value;
+      const cleaned = original
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/đ/g, 'd')
+        .replace(/Đ/g, 'D');
+
+      if (cleaned !== original) {
+        inputEl.value = cleaned;
+        if (typeof start === 'number' && typeof end === 'number') {
+          const diff = original.length - cleaned.length;
+          const newPos = Math.max(0, start - diff);
+          inputEl.setSelectionRange(newPos, newPos);
+        }
+      }
+    }
+
+    // Mô phỏng bàn phím tiếng Anh chuẩn Mỹ (US Keyboard):
+    // Chặn hoàn toàn IME tiếng Việt nuốt phím (s, f, r, x, j, w, a, e, o...) và chèn thẳng ký tự gốc ngay lập tức
+    function attachUsEnglishKeyboardMode(inputEl, isEnglishModeFn) {
+      if (!inputEl) return;
+
+      inputEl.addEventListener('keydown', (e) => {
+        if (!isEnglishModeFn()) return;
+        if (e.ctrlKey || e.metaKey || e.altKey) return;
+
+        let charToInsert = null;
+
+        if (e.code && e.code.startsWith('Key') && e.code.length === 4) {
+          const baseLetter = e.code.slice(3).toLowerCase();
+          const isUpper = e.shiftKey ^ e.getModifierState('CapsLock');
+          charToInsert = isUpper ? baseLetter.toUpperCase() : baseLetter;
+        } else if (e.code === 'Space') {
+          charToInsert = ' ';
+        } else if (e.code === 'Minus' && !e.shiftKey) {
+          charToInsert = '-';
+        } else if (e.code === 'Quote' && !e.shiftKey) {
+          charToInsert = "'";
+        }
+
+        if (charToInsert !== null) {
+          e.preventDefault();
+          e.stopPropagation();
+          const start = inputEl.selectionStart ?? inputEl.value.length;
+          const end = inputEl.selectionEnd ?? inputEl.value.length;
+          inputEl.value = inputEl.value.slice(0, start) + charToInsert + inputEl.value.slice(end);
+          const nextPos = start + 1;
+          inputEl.setSelectionRange(nextPos, nextPos);
+        }
+      }, true);
+
+      inputEl.addEventListener('input', () => {
+        if (isEnglishModeFn()) {
+          stripVietnameseAccentsForEnglishInput(inputEl);
+        }
+      });
+    }
+
+    // =========================================================================
+    // 4. ĐIỀU HƯỚNG 3 TAB CHÍNH & FOCUS ZOOM
+    // =========================================================================
+    let currentTab = 'flashcard';
+
+    function switchTab(tab) {
+      currentTab = tab;
+      ['flashcard', 'typing', 'dictation'].forEach(t => {
+        const view = document.getElementById(`view-${t}`);
+        const btn = document.getElementById(`tab-${t}`);
+        if (t === tab) {
+          view.classList.remove('hidden');
+          view.classList.add('block');
+          btn.classList.add('bg-white', 'text-[#0A84FF]', 'shadow-xs');
+          btn.classList.remove('text-slate-600', 'hover:text-slate-900');
+        } else {
+          view.classList.add('hidden');
+          view.classList.remove('block');
+          btn.classList.remove('bg-white', 'text-[#0A84FF]', 'shadow-xs');
+          btn.classList.add('text-slate-600', 'hover:text-slate-900');
+        }
+      });
+
+      ['tp', 'dc'].forEach(prefix => {
+        const area = document.getElementById(`${prefix}-active-area`);
+        if (area && area.classList.contains('focus-zoom-active')) {
+          toggleFocusZoom(prefix);
+        }
+      });
+
+      if (tab === 'typing' && tpState.deck.length === 0) {
+        startTypingSession();
+      } else if (tab === 'dictation' && dcState.deck.length === 0) {
+        startDictationSession();
+      }
+    }
+
+    function toggleFocusZoom(prefix) {
+      const area = document.getElementById(`${prefix}-active-area`);
+      const label = document.getElementById(`${prefix}-zoom-label`);
+      if (!area) return;
+      const isZoomed = area.classList.toggle('focus-zoom-active');
+      if (label) {
+        label.textContent = isZoomed ? 'Thu nhỏ màn hình (Esc)' : 'Phóng to màn hình gõ';
+      }
+      const input = document.getElementById(`${prefix}-input`);
+      if (input) input.focus();
+    }
+
+    // =========================================================================
+    // 5. CHỨC NĂNG 1: FLASHCARD (ĐẦY ĐỦ DER., SYN., COLLOCATIONS)
+    // =========================================================================
+    const fcState = {
+      deck: [],
+      index: 0,
+      isFlipped: false,
+      isShuffled: false
+    };
+
+    function updateFcPresetHighlight(s, e) {
+      const key = `${s}-${e}`;
+      document.querySelectorAll('.fc-preset-btn').forEach(btn => {
+        if (btn.dataset.fcPreset === key) {
+          btn.className = 'fc-preset-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-[#0A84FF] text-white transition';
+        } else {
+          btn.className = 'fc-preset-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition';
+        }
+      });
+    }
+
+    function setFcPreset(start, end) {
+      document.getElementById('fc-start').value = start;
+      document.getElementById('fc-end').value = end;
+      applyFcRange(false);
+    }
+
+    function applyFcRange(silent = false) {
+      const [s, e] = clampRange(
+        document.getElementById('fc-start').value,
+        document.getElementById('fc-end').value
+      );
+      document.getElementById('fc-start').value = s;
+      document.getElementById('fc-end').value = e;
+      updateFcPresetHighlight(s, e);
+
+      let list = VOCAB_DATA.filter(item => item.id >= s && item.id <= e);
+      if (fcState.isShuffled) {
+        list = shuffleArray(list);
+      }
+      fcState.deck = list;
+      fcState.index = 0;
+      fcState.isFlipped = false;
+
+      renderFlashcard(!silent);
+    }
+
+    function toggleFcShuffle() {
+      fcState.isShuffled = !fcState.isShuffled;
+      const btn = document.getElementById('fc-shuffle-btn');
+      const label = document.getElementById('fc-shuffle-label');
+      if (fcState.isShuffled) {
+        btn.classList.add('bg-[#D0E2FF]', 'text-[#0A84FF]');
+        btn.classList.remove('bg-slate-100', 'text-slate-700');
+        label.textContent = 'Ngẫu nhiên';
+      } else {
+        btn.classList.remove('bg-[#D0E2FF]', 'text-[#0A84FF]');
+        btn.classList.add('bg-slate-100', 'text-slate-700');
+        label.textContent = 'Thứ tự';
+      }
+      applyFcRange(true);
+    }
+
+    function renderFlashcard(autoSpeak = false) {
+      if (!fcState.deck.length) return;
+      const item = fcState.deck[fcState.index];
+      const total = fcState.deck.length;
+      const currentNum = fcState.index + 1;
+      const pct = Math.round((currentNum / total) * 100);
+
+      const inner = document.getElementById('fc-flip-inner');
+      fcState.isFlipped = false;
+      inner.classList.remove('is-flipped');
+
+      const [s, e] = [document.getElementById('fc-start').value, document.getElementById('fc-end').value];
+      document.getElementById('fc-subtitle').textContent =
+        `${DAY_TOPICS[item.day]} • Đang học từ #${s} đến #${e} (${total} từ)`;
+
+      // Mặt trước
+      document.getElementById('fc-day-badge').textContent = `Day ${item.day}`;
+      document.getElementById('fc-id-badge').textContent = `#${item.id}`;
+      document.getElementById('fc-word').textContent = item.word;
+      document.getElementById('fc-ipa-pos').textContent = `${item.ipa} • ${item.pos}`;
+      document.getElementById('fc-svg-container').innerHTML = getTopicSvg(item.day, item.id);
+      document.getElementById('fc-topic-label').textContent = DAY_TOPICS[item.day];
+      document.getElementById('fc-counter-front').textContent = `${currentNum} / ${total}`;
+      document.getElementById('fc-progress-front').style.width = `${pct}%`;
+
+      // Mặt sau
+      document.getElementById('fc-back-word').textContent = item.word;
+      document.getElementById('fc-back-ipa').textContent = `${item.ipa} • ${item.pos}`;
+      document.getElementById('fc-back-id').textContent = `#${item.id}`;
+      document.getElementById('fc-meaning').textContent = item.meaning;
+
+      // Từ loại liên quan (der.)
+      const derEl = document.getElementById('fc-derivatives');
+      if (item.der && item.der.trim()) {
+        derEl.innerHTML = item.der.split(',').map(d =>
+          `<div class="font-medium text-slate-700">• ${d.trim()}</div>`
+        ).join('');
+      } else {
+        derEl.innerHTML = `<div class="text-slate-400 italic">Không có từ phái sinh chính</div>`;
+      }
+
+      // Từ đồng nghĩa / trái nghĩa (syn. / ant.)
+      const synEl = document.getElementById('fc-synonyms');
+      if (item.syn && item.syn.trim()) {
+        synEl.innerHTML = item.syn.split(',').map(s =>
+          `<span class="px-2 py-0.5 rounded-md bg-emerald-100/80 text-emerald-800 font-semibold text-xs">${s.trim()}</span>`
+        ).join('');
+      } else {
+        synEl.innerHTML = `<span class="text-xs text-slate-400 italic">Không có</span>`;
+      }
+
+      // Cụm từ thường gặp (collocations)
+      const colEl = document.getElementById('fc-collocations');
+      if (item.collocations && item.collocations.length) {
+        colEl.innerHTML = item.collocations.map(c => `<li>${c}</li>`).join('');
+      } else {
+        colEl.innerHTML = `<li class="text-slate-400 italic">Đang cập nhật</li>`;
+      }
+
+      // Ví dụ
+      document.getElementById('fc-example-en').textContent = item.exEn;
+      document.getElementById('fc-example-vi').textContent = item.exVi;
+      document.getElementById('fc-counter-back').textContent = `${currentNum} / ${total}`;
+      document.getElementById('fc-progress-back').style.width = `${pct}%`;
+
+      if (autoSpeak && document.getElementById('fc-auto-speak').checked) {
+        speakCurrentFcWord();
+      }
+    }
+
+    function flipFlashcard() {
+      const inner = document.getElementById('fc-flip-inner');
+      fcState.isFlipped = !fcState.isFlipped;
+      inner.classList.toggle('is-flipped', fcState.isFlipped);
+    }
+
+    function nextFlashcard() {
+      if (!fcState.deck.length) return;
+      fcState.index = (fcState.index + 1) % fcState.deck.length;
+      renderFlashcard(true);
+    }
+
+    function prevFlashcard() {
+      if (!fcState.deck.length) return;
+      fcState.index = (fcState.index - 1 + fcState.deck.length) % fcState.deck.length;
+      renderFlashcard(true);
+    }
+
+    function speakCurrentFcWord() {
+      if (!fcState.deck.length) return;
+      const item = fcState.deck[fcState.index];
+      const btn = document.getElementById('fc-speak-btn');
+      speakText(item.word, 0.95, btn);
+    }
+
+    function speakCurrentFcExample() {
+      if (!fcState.deck.length) return;
+      const item = fcState.deck[fcState.index];
+      speakText(item.exEn, 0.95);
+    }
+
+    // =========================================================================
+    // 6. CHỨC NĂNG 2: LUYỆN GÕ VIỆT ↔ ANH (BẮT BUỘC GÕ XONG MỚI QUA CÂU SAU)
+    // =========================================================================
+    const tpState = {
+      direction: 'vi2en',
+      deck: [],
+      index: 0,
+      correct: 0,
+      wrong: 0,
+      wrongItems: [],
+      answered: false,
+      hintLevel: 0
+    };
+
+    function setTypingDirection(dir) {
+      tpState.direction = dir;
+      const btnVi2En = document.getElementById('tp-dir-vi2en');
+      const btnEn2Vi = document.getElementById('tp-dir-en2vi');
+
+      if (dir === 'vi2en') {
+        btnVi2En.className = 'px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-bold bg-white text-[#0A84FF] shadow-xs transition';
+        btnEn2Vi.className = 'px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-bold text-slate-600 hover:text-slate-900 transition';
+      } else {
+        btnEn2Vi.className = 'px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-bold bg-white text-[#0A84FF] shadow-xs transition';
+        btnVi2En.className = 'px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-bold text-slate-600 hover:text-slate-900 transition';
+      }
+      startTypingSession();
+    }
+
+    function setTpPreset(start, end) {
+      document.getElementById('tp-start').value = start;
+      document.getElementById('tp-end').value = end;
+      const key = `${start}-${end}`;
+      document.querySelectorAll('.tp-preset-btn').forEach(btn => {
+        if (btn.dataset.tpPreset === key) {
+          btn.className = 'tp-preset-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-[#0A84FF] text-white transition';
+        } else {
+          btn.className = 'tp-preset-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition';
+        }
+      });
+      startTypingSession();
+    }
+
+    function startTypingSession(customDeck = null) {
+      let list = customDeck;
+      if (!list) {
+        const [s, e] = clampRange(
+          document.getElementById('tp-start').value,
+          document.getElementById('tp-end').value
+        );
+        document.getElementById('tp-start').value = s;
+        document.getElementById('tp-end').value = e;
+        list = VOCAB_DATA.filter(item => item.id >= s && item.id <= e);
+        if (document.getElementById('tp-order').value === 'random') {
+          list = shuffleArray(list);
+        }
+      }
+
+      tpState.deck = list;
+      tpState.index = 0;
+      tpState.correct = 0;
+      tpState.wrong = 0;
+      tpState.wrongItems = [];
+      tpState.answered = false;
+
+      document.getElementById('tp-summary').classList.add('hidden');
+      document.getElementById('tp-active-area').classList.remove('hidden');
+      renderTypingQuestion();
+    }
+
+    function updateTypingStats() {
+      const total = tpState.deck.length;
+      const cur = Math.min(tpState.index + 1, total);
+      const answeredTotal = tpState.correct + tpState.wrong;
+      const acc = answeredTotal > 0 ? Math.round((tpState.correct / answeredTotal) * 100) : 0;
+
+      document.getElementById('tp-stat-progress').textContent = `${cur} / ${total}`;
+      document.getElementById('tp-stat-correct').textContent = tpState.correct;
+      document.getElementById('tp-stat-wrong').textContent = tpState.wrong;
+      document.getElementById('tp-stat-acc').textContent = `${acc}%`;
+    }
+
+    function renderTypingQuestion() {
+      if (tpState.index >= tpState.deck.length) {
+        finishTypingSession();
+        return;
+      }
+
+      const item = tpState.deck[tpState.index];
+      tpState.answered = false;
+      tpState.hintLevel = 0;
+      updateTypingStats();
+
+      document.getElementById('tp-badge-day').textContent = `Day ${item.day} • #${item.id}`;
+      document.getElementById('tp-badge-pos').textContent = `Loại từ: ${item.pos}`;
+      document.getElementById('tp-hint-text').textContent = '';
+
+      const input = document.getElementById('tp-input');
+      input.value = '';
+      input.disabled = false;
+      input.className = 'zoom-input w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 focus:border-[#0A84FF] focus:outline-none text-lg sm:text-xl font-bold text-[#0F172A] text-center transition';
+
+      const feedback = document.getElementById('tp-feedback');
+      feedback.classList.add('hidden');
+      feedback.innerHTML = '';
+
+      const checkBtn = document.getElementById('tp-check-btn');
+      const nextBtn = document.getElementById('tp-next-btn');
+      checkBtn.classList.remove('hidden');
+      nextBtn.classList.add('hidden');
+      nextBtn.disabled = true;
+
+      if (tpState.direction === 'vi2en') {
+        document.getElementById('tp-prompt-label').textContent = 'Nghĩa tiếng Việt:';
+        document.getElementById('tp-prompt-main').textContent = item.meaning;
+        document.getElementById('tp-prompt-sub').innerHTML = '';
+        document.getElementById('tp-hint-bar').classList.remove('hidden');
+        input.placeholder = 'Nhập từ tiếng Anh tương ứng...';
+      } else {
+        document.getElementById('tp-prompt-label').textContent = 'Từ tiếng Anh:';
+        document.getElementById('tp-prompt-main').textContent = item.word;
+        document.getElementById('tp-prompt-sub').innerHTML = `
+          <span>${item.ipa}</span>
+          <button type="button" onclick="speakText('${item.word.replace(/'/g, "\\'")}', 0.95)" class="px-2.5 py-1 rounded-lg bg-white hover:bg-blue-50 text-[#0A84FF] border border-blue-200 text-xs font-bold">🔊 Nghe</button>
+        `;
+        document.getElementById('tp-hint-bar').classList.add('hidden');
+        input.placeholder = 'Nhập nghĩa tiếng Việt của từ trên...';
+        speakText(item.word, 0.95);
+      }
+
+      setTimeout(() => input.focus(), 40);
+    }
+
+    function showTypingHint() {
+      if (tpState.direction !== 'vi2en' || tpState.answered) return;
+      const item = tpState.deck[tpState.index];
+      const target = item.word;
+      tpState.hintLevel = Math.min(target.length, tpState.hintLevel + 1);
+      const masked = target
+        .split('')
+        .map((ch, idx) => (ch === ' ' || ch === '-' || idx < tpState.hintLevel ? ch : '_'))
+        .join(' ');
+      document.getElementById('tp-hint-text').textContent = masked;
+      document.getElementById('tp-input').focus();
+    }
+
+    function checkTypingAnswer(userRaw, item) {
+      const userNorm = normalizeText(userRaw);
+      if (!userNorm) return false;
+
+      if (tpState.direction === 'vi2en') {
+        const validAnswers = [item.word];
+        if (item.syn && !item.syn.startsWith('ant.')) {
+          item.syn.split(',').forEach(s => {
+            // Loại bỏ phần giải thích trong ngoặc như "vacancy (khoảng trống)" -> "vacancy"
+            const cleaned = s.replace(/\(.*?\)/g, '').replace(/^syn\.\s*/i, '').trim();
+            if (cleaned && !cleaned.startsWith('ant.')) validAnswers.push(cleaned);
+          });
+        }
+        return validAnswers.some(ans => normalizeText(ans) === userNorm);
+      } else {
+        const cleanedMeaning = item.meaning.replace(/\(.*?\)/g, '');
+        const parts = cleanedMeaning.split(/[,;]/).map(p => normalizeText(p)).filter(Boolean);
+        return parts.some(p => p === userNorm || (userNorm.length >= 3 && p.includes(userNorm)) || (p.length >= 3 && userNorm.includes(p)));
+      }
+    }
+
+    function handleTypingSubmit() {
+      if (tpState.answered) {
+        nextTypingQuestion();
+        return;
+      }
+
+      const input = document.getElementById('tp-input');
+      const userVal = input.value.trim();
+      if (!userVal) {
+        showToast('Vui lòng gõ câu trả lời trước khi kiểm tra!');
+        input.focus();
+        return;
+      }
+
+      const item = tpState.deck[tpState.index];
+      const isCorrect = checkTypingAnswer(userVal, item);
+      tpState.answered = true;
+      input.disabled = true;
+
+      const feedback = document.getElementById('tp-feedback');
+      feedback.classList.remove('hidden');
+
+      if (isCorrect) {
+        tpState.correct++;
+        input.classList.remove('border-slate-200', 'focus:border-[#0A84FF]');
+        input.classList.add('border-emerald-500', 'bg-emerald-50/40', 'text-emerald-800');
+        feedback.className = 'mt-4 rounded-xl p-4 border border-emerald-200 bg-emerald-50/70 text-left';
+        feedback.innerHTML = `
+          <div class="font-bold text-emerald-700 text-sm sm:text-base">✅ Chính xác!</div>
+          <div class="mt-1 text-xs sm:text-sm text-slate-700">
+            <span class="font-bold text-[#0F172A]">${item.word}</span> (${item.pos}) ${item.ipa} — <span class="font-semibold">${item.meaning}</span>
+          </div>
+          ${item.syn ? `<div class="mt-1 text-xs text-emerald-700">Mở rộng: ${item.syn}</div>` : ''}
+        `;
+      } else {
+        tpState.wrong++;
+        tpState.wrongItems.push({ item, userAnswer: userVal });
+        input.classList.remove('border-slate-200', 'focus:border-[#0A84FF]');
+        input.classList.add('border-rose-500', 'bg-rose-50/40', 'text-rose-800');
+        feedback.className = 'mt-4 rounded-xl p-4 border border-rose-200 bg-rose-50/70 text-left';
+        feedback.innerHTML = `
+          <div class="font-bold text-rose-700 text-sm sm:text-base">❌ Chưa chính xác!</div>
+          <div class="mt-1 text-xs sm:text-sm text-slate-700">
+            Đáp án đúng: <span class="font-bold text-[#0A84FF] text-base">${item.word}</span> (${item.pos}) ${item.ipa} — <span class="font-semibold">${item.meaning}</span>
+          </div>
+          <div class="mt-1 text-xs text-slate-500 italic">Ví dụ: ${item.exEn}</div>
+        `;
+      }
+
+      speakText(item.word, 0.95);
+      updateTypingStats();
+
+      document.getElementById('tp-check-btn').classList.add('hidden');
+      const nextBtn = document.getElementById('tp-next-btn');
+      nextBtn.classList.remove('hidden');
+      nextBtn.disabled = false;
+      nextBtn.focus();
+    }
+
+    function nextTypingQuestion() {
+      if (!tpState.answered) {
+        showToast('Bạn cần gõ xong và kiểm tra câu hiện tại trước khi qua câu tiếp theo!');
+        return;
+      }
+      tpState.index++;
+      renderTypingQuestion();
+    }
+
+    function finishTypingSession() {
+      const area = document.getElementById('tp-active-area');
+      if (area.classList.contains('focus-zoom-active')) {
+        toggleFocusZoom('tp');
+      }
+      area.classList.add('hidden');
+      const summary = document.getElementById('tp-summary');
+      summary.classList.remove('hidden');
+
+      const total = tpState.deck.length;
+      const acc = total > 0 ? Math.round((tpState.correct / total) * 100) : 0;
+      document.getElementById('tp-sum-correct').textContent = tpState.correct;
+      document.getElementById('tp-sum-wrong').textContent = tpState.wrong;
+      document.getElementById('tp-sum-acc').textContent = `${acc}%`;
+
+      const wrongBox = document.getElementById('tp-wrong-list-box');
+      const wrongList = document.getElementById('tp-wrong-list');
+      const retryBtn = document.getElementById('tp-retry-wrong-btn');
+
+      if (tpState.wrongItems.length > 0) {
+        wrongBox.classList.remove('hidden');
+        retryBtn.classList.remove('hidden');
+        wrongList.innerHTML = tpState.wrongItems.map(w =>
+          `<li>• <span class="font-bold text-[#0F172A]">#${w.item.id} ${w.item.word}</span>: ${w.item.meaning} <span class="text-rose-500">(Bạn gõ: "${w.userAnswer}")</span></li>`
+        ).join('');
+      } else {
+        wrongBox.classList.add('hidden');
+        retryBtn.classList.add('hidden');
+      }
+    }
+
+    function retryTypingWrong() {
+      if (!tpState.wrongItems.length) return;
+      const items = tpState.wrongItems.map(w => w.item);
+      startTypingSession(items);
+    }
+
+    // =========================================================================
+    // 7. CHỨC NĂNG 3: NGHE & GÕ TỪ (DICTATION - BẮT BUỘC GÕ XONG MỚI QUA CÂU)
+    // =========================================================================
+    const dcState = {
+      deck: [],
+      index: 0,
+      correct: 0,
+      wrong: 0,
+      wrongItems: [],
+      answered: false,
+      hintLevel: 0
+    };
+
+    function setDcPreset(start, end) {
+      document.getElementById('dc-start').value = start;
+      document.getElementById('dc-end').value = end;
+      const key = `${start}-${end}`;
+      document.querySelectorAll('.dc-preset-btn').forEach(btn => {
+        if (btn.dataset.dcPreset === key) {
+          btn.className = 'dc-preset-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-[#0A84FF] text-white transition';
+        } else {
+          btn.className = 'dc-preset-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition';
+        }
+      });
+      startDictationSession();
+    }
+
+    function startDictationSession(customDeck = null) {
+      let list = customDeck;
+      if (!list) {
+        const [s, e] = clampRange(
+          document.getElementById('dc-start').value,
+          document.getElementById('dc-end').value
+        );
+        document.getElementById('dc-start').value = s;
+        document.getElementById('dc-end').value = e;
+        list = VOCAB_DATA.filter(item => item.id >= s && item.id <= e);
+        if (document.getElementById('dc-order').value === 'random') {
+          list = shuffleArray(list);
+        }
+      }
+
+      dcState.deck = list;
+      dcState.index = 0;
+      dcState.correct = 0;
+      dcState.wrong = 0;
+      dcState.wrongItems = [];
+      dcState.answered = false;
+
+      document.getElementById('dc-summary').classList.add('hidden');
+      document.getElementById('dc-active-area').classList.remove('hidden');
+      renderDictationQuestion();
+    }
+
+    function updateDictationStats() {
+      const total = dcState.deck.length;
+      const cur = Math.min(dcState.index + 1, total);
+      const answeredTotal = dcState.correct + dcState.wrong;
+      const acc = answeredTotal > 0 ? Math.round((dcState.correct / answeredTotal) * 100) : 0;
+
+      document.getElementById('dc-stat-progress').textContent = `${cur} / ${total}`;
+      document.getElementById('dc-stat-correct').textContent = dcState.correct;
+      document.getElementById('dc-stat-wrong').textContent = dcState.wrong;
+      document.getElementById('dc-stat-acc').textContent = `${acc}%`;
+    }
+
+    function renderDictationQuestion() {
+      if (dcState.index >= dcState.deck.length) {
+        finishDictationSession();
+        return;
+      }
+
+      const item = dcState.deck[dcState.index];
+      dcState.answered = false;
+      dcState.hintLevel = 0;
+      updateDictationStats();
+
+      document.getElementById('dc-badge-day').textContent = `Day ${item.day} • Câu ${dcState.index + 1}`;
+      document.getElementById('dc-hint-display').textContent = '';
+
+      const input = document.getElementById('dc-input');
+      input.value = '';
+      input.disabled = false;
+      input.className = 'zoom-input w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 focus:border-[#0A84FF] focus:outline-none text-lg sm:text-xl font-bold text-[#0F172A] text-center transition';
+
+      const feedback = document.getElementById('dc-feedback');
+      feedback.classList.add('hidden');
+      feedback.innerHTML = '';
+
+      const checkBtn = document.getElementById('dc-check-btn');
+      const nextBtn = document.getElementById('dc-next-btn');
+      checkBtn.classList.remove('hidden');
+      nextBtn.classList.add('hidden');
+      nextBtn.disabled = true;
+
+      playCurrentDictation(0.95);
+      setTimeout(() => input.focus(), 40);
+    }
+
+    function playCurrentDictation(rate = 0.95) {
+      if (!dcState.deck.length || dcState.index >= dcState.deck.length) return;
+      const item = dcState.deck[dcState.index];
+      const btn = document.getElementById('dc-play-btn');
+      speakText(item.word, rate, btn);
+    }
+
+    function toggleDictationMeaningHint() {
+      if (!dcState.deck.length || dcState.index >= dcState.deck.length) return;
+      const item = dcState.deck[dcState.index];
+      document.getElementById('dc-hint-display').textContent = `Nghĩa: ${item.meaning} (${item.pos})`;
+      document.getElementById('dc-input').focus();
+    }
+
+    function showDictationLetterHint() {
+      if (!dcState.deck.length || dcState.index >= dcState.deck.length || dcState.answered) return;
+      const item = dcState.deck[dcState.index];
+      const target = item.word;
+      dcState.hintLevel = Math.min(target.length, dcState.hintLevel + 1);
+      const masked = target
+        .split('')
+        .map((ch, idx) => (ch === ' ' || ch === '-' || idx < dcState.hintLevel ? ch : '_'))
+        .join(' ');
+      document.getElementById('dc-hint-display').textContent = masked;
+      document.getElementById('dc-input').focus();
+    }
+
+    function handleDictationSubmit() {
+      if (dcState.answered) {
+        nextDictationQuestion();
+        return;
+      }
+
+      const input = document.getElementById('dc-input');
+      const userVal = input.value.trim();
+      if (!userVal) {
+        showToast('Vui lòng gõ từ bạn nghe được trước khi kiểm tra!');
+        input.focus();
+        return;
+      }
+
+      const item = dcState.deck[dcState.index];
+      const isCorrect = normalizeText(userVal) === normalizeText(item.word);
+      dcState.answered = true;
+      input.disabled = true;
+
+      const feedback = document.getElementById('dc-feedback');
+      feedback.classList.remove('hidden');
+
+      if (isCorrect) {
+        dcState.correct++;
+        input.classList.remove('border-slate-200', 'focus:border-[#0A84FF]');
+        input.classList.add('border-emerald-500', 'bg-emerald-50/40', 'text-emerald-800');
+        feedback.className = 'mt-4 rounded-xl p-4 border border-emerald-200 bg-emerald-50/70 text-left';
+        feedback.innerHTML = `
+          <div class="font-bold text-emerald-700 text-sm sm:text-base">✅ Nghe chính xác!</div>
+          <div class="mt-1 text-xs sm:text-sm text-slate-700">
+            <span class="font-bold text-[#0F172A]">#${item.id} ${item.word}</span> (${item.pos}) ${item.ipa} — <span class="font-semibold">${item.meaning}</span>
+          </div>
+        `;
+      } else {
+        dcState.wrong++;
+        dcState.wrongItems.push({ item, userAnswer: userVal });
+        input.classList.remove('border-slate-200', 'focus:border-[#0A84FF]');
+        input.classList.add('border-rose-500', 'bg-rose-50/40', 'text-rose-800');
+        feedback.className = 'mt-4 rounded-xl p-4 border border-rose-200 bg-rose-50/70 text-left';
+        feedback.innerHTML = `
+          <div class="font-bold text-rose-700 text-sm sm:text-base">❌ Chưa đúng chính tả!</div>
+          <div class="mt-1 text-xs sm:text-sm text-slate-700">
+            Từ đúng là: <span class="font-bold text-[#0A84FF] text-base">#${item.id} ${item.word}</span> (${item.pos}) ${item.ipa} — <span class="font-semibold">${item.meaning}</span>
+          </div>
+        `;
+      }
+
+      updateDictationStats();
+      document.getElementById('dc-check-btn').classList.add('hidden');
+      const nextBtn = document.getElementById('dc-next-btn');
+      nextBtn.classList.remove('hidden');
+      nextBtn.disabled = false;
+      nextBtn.focus();
+    }
+
+    function nextDictationQuestion() {
+      if (!dcState.answered) {
+        showToast('Bạn cần gõ xong và kiểm tra câu hiện tại trước khi qua câu tiếp theo!');
+        return;
+      }
+      dcState.index++;
+      renderDictationQuestion();
+    }
+
+    function finishDictationSession() {
+      const area = document.getElementById('dc-active-area');
+      if (area.classList.contains('focus-zoom-active')) {
+        toggleFocusZoom('dc');
+      }
+      area.classList.add('hidden');
+      const summary = document.getElementById('dc-summary');
+      summary.classList.remove('hidden');
+
+      const total = dcState.deck.length;
+      const acc = total > 0 ? Math.round((dcState.correct / total) * 100) : 0;
+      document.getElementById('dc-sum-correct').textContent = dcState.correct;
+      document.getElementById('dc-sum-wrong').textContent = dcState.wrong;
+      document.getElementById('dc-sum-acc').textContent = `${acc}%`;
+
+      const wrongBox = document.getElementById('dc-wrong-list-box');
+      const wrongList = document.getElementById('dc-wrong-list');
+      const retryBtn = document.getElementById('dc-retry-wrong-btn');
+
+      if (dcState.wrongItems.length > 0) {
+        wrongBox.classList.remove('hidden');
+        retryBtn.classList.remove('hidden');
+        wrongList.innerHTML = dcState.wrongItems.map(w =>
+          `<li>• <span class="font-bold text-[#0F172A]">#${w.item.id} ${w.item.word}</span>: ${w.item.meaning} <span class="text-rose-500">(Bạn gõ: "${w.userAnswer}")</span></li>`
+        ).join('');
+      } else {
+        wrongBox.classList.add('hidden');
+        retryBtn.classList.add('hidden');
+      }
+    }
+
+    function retryDictationWrong() {
+      if (!dcState.wrongItems.length) return;
+      const items = dcState.wrongItems.map(w => w.item);
+      startDictationSession(items);
+    }
+
+    // =========================================================================
+    // 8. MODAL XEM BẢNG TỪ VỰNG (#1 - #203)
+    // =========================================================================
+    let modalDayFilter = 0;
+
+    function openVocabModal() {
+      document.getElementById('vocab-modal').classList.remove('hidden');
+      renderVocabTable();
+    }
+
+    function closeVocabModal() {
+      document.getElementById('vocab-modal').classList.add('hidden');
+    }
+
+    function filterModalDay(day) {
+      modalDayFilter = day;
+      document.querySelectorAll('.modal-day-btn').forEach(btn => {
+        if (parseInt(btn.dataset.modalDay, 10) === day) {
+          btn.className = 'modal-day-btn px-2.5 py-1 rounded-lg text-xs font-bold bg-[#0A84FF] text-white';
+        } else {
+          btn.className = 'modal-day-btn px-2.5 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-700';
+        }
+      });
+      renderVocabTable();
+    }
+
+    function jumpToFlashcard(wordId) {
+      closeVocabModal();
+      switchTab('flashcard');
+      const item = VOCAB_DATA.find(v => v.id === wordId);
+      if (!item) return;
+
+      fcState.isShuffled = false;
+      document.getElementById('fc-shuffle-label').textContent = 'Thứ tự';
+      document.getElementById('fc-start').value = 1;
+      document.getElementById('fc-end').value = 203;
+      updateFcPresetHighlight(1, 203);
+      fcState.deck = [...VOCAB_DATA];
+      fcState.index = fcState.deck.findIndex(v => v.id === wordId);
+      if (fcState.index < 0) fcState.index = 0;
+      renderFlashcard(true);
+    }
+
+    function renderVocabTable() {
+      const keyword = normalizeText(document.getElementById('modal-search').value);
+      const filtered = VOCAB_DATA.filter(item => {
+        if (modalDayFilter !== 0 && item.day !== modalDayFilter) return false;
+        if (!keyword) return true;
+        return (
+          normalizeText(item.word).includes(keyword) ||
+          normalizeText(item.meaning).includes(keyword) ||
+          String(item.id) === keyword
+        );
+      });
+
+      const tbody = document.getElementById('vocab-table-body');
+      tbody.innerHTML = filtered.map(item => `
+        <tr class="hover:bg-blue-50/50 transition">
+          <td class="py-2.5 px-3 text-center font-bold text-slate-500">#${item.id}</td>
+          <td class="py-2.5 px-3">
+            <button type="button" onclick="jumpToFlashcard(${item.id})" class="text-left group">
+              <div class="font-bold text-[#0F172A] group-hover:text-[#0A84FF] transition">${item.word}</div>
+              <div class="text-xs text-slate-400">${item.ipa}</div>
+            </button>
+          </td>
+          <td class="py-2.5 px-3 text-center">
+            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-semibold text-xs">${item.pos}</span>
+          </td>
+          <td class="py-2.5 px-3">
+            <div class="font-semibold text-slate-800">${item.meaning}</div>
+            ${item.syn ? `<div class="text-xs text-emerald-700 mt-0.5">${item.syn}</div>` : ''}
+          </td>
+          <td class="py-2.5 px-3 text-center">
+            <button type="button" onclick="speakText('${item.word.replace(/'/g, "\\'")}', 0.95)" class="w-8 h-8 rounded-full bg-[#D0E2FF]/70 hover:bg-[#0A84FF] text-[#0A84FF] hover:text-white inline-flex items-center justify-center transition" title="Nghe phát âm">
+              🔊
+            </button>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    // =========================================================================
+    // 9. PHÍM TẮT TOÀN CỤC & KHỞI TẠO
+    // =========================================================================
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        const modal = document.getElementById('vocab-modal');
+        if (!modal.classList.contains('hidden')) {
+          closeVocabModal();
+          return;
+        }
+        ['tp', 'dc'].forEach(prefix => {
+          const area = document.getElementById(`${prefix}-active-area`);
+          if (area && area.classList.contains('focus-zoom-active')) {
+            toggleFocusZoom(prefix);
+          }
+        });
+      }
+
+      if (currentTab === 'typing' && document.activeElement?.id === 'tp-input' && e.key === 'Enter') {
+        e.preventDefault();
+        handleTypingSubmit();
+        return;
+      }
+
+      if (currentTab === 'dictation') {
+        if ((e.ctrlKey || e.altKey) && !e.shiftKey && !e.metaKey) {
+          e.preventDefault();
+          playCurrentDictation(0.95);
+          return;
+        }
+        if (document.activeElement?.id === 'dc-input' && e.key === 'Enter') {
+          e.preventDefault();
+          handleDictationSubmit();
+          return;
+        }
+      }
+
+      const tag = document.activeElement?.tagName;
+      if (currentTab === 'flashcard' && tag !== 'INPUT' && tag !== 'TEXTAREA' && tag !== 'SELECT') {
+        if (e.code === 'Space') {
+          e.preventDefault();
+          flipFlashcard();
+        } else if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          nextFlashcard();
+        } else if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          prevFlashcard();
+        } else if (e.key.toLowerCase() === 'r') {
+          e.preventDefault();
+          speakCurrentFcWord();
+        }
+      }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      applyFcRange(true);
+
+      const tpInput = document.getElementById('tp-input');
+      attachUsEnglishKeyboardMode(tpInput, () => tpState.direction === 'vi2en');
+
+      const dcInput = document.getElementById('dc-input');
+      attachUsEnglishKeyboardMode(dcInput, () => true);
+    });
+  </script>
+</body>
+</html>
